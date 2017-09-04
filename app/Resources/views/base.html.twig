@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="{{ asset('design/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('design/css/bootstrap-theme.min.css') }}">
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="containt">
+        {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">
+        {{ msg }}
+        </div>
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+    </div>
+
+        {% block javascripts %}
+            <script
+                    src="https://code.jquery.com/jquery-3.2.1.min.js"
+                    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                    crossorigin="anonymous"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script  src=" {{ asset('design/js/bootstrap.min.js') }}" ></script>
+        {% endblock %}
+    </body>
+</html>

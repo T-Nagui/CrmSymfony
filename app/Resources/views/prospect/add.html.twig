@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  {{ form_start(prospectForm) }}
+    {{ form_widget(prospectForm) }}
+    <button type="submit" name="add" class="btn btn-primery">Add</button>
+    {{ form_end(prospectForm) }}
+{% endblock %}
