@@ -32,6 +32,22 @@ class Speciality
      * @ORM\JoinColumn(nullable=false)
      */
     private $groupe;
+
+    /**
+     * @return mixed
+     */
+    public function getGroupe()
+    {
+        return $this->groupe;
+    }
+
+    /**
+     * @param mixed $groupe
+     */
+    public function setGroupe($groupe)
+    {
+        $this->groupe = $groupe;
+    }
     /**
      * @return mixed
      */
