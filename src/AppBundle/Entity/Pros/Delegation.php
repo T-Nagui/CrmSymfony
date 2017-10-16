@@ -72,5 +72,9 @@ class Delegation
         $this->governorate = $governorate;
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
 }

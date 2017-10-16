@@ -8,13 +8,26 @@
 
 namespace AppBundle\Form;
 
-
+use AppBundle\Entity\Pros\Delegation;
+use Doctrine\ORM\EntityManager;
+use AppBundle\Entity\Pros\Prospect;
+use AppBundle\Entity\Pros\Governorate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class ProspectFormType extends AbstractType
 {
+    protected $em;
+
+    function __construct(EntityManager $em)
+    {
+        $this->em = $em;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
        $builder
@@ -22,8 +35,25 @@ class ProspectFormType extends AbstractType
            ->add('lastName')
            ->add('address')
            ->add('speciality')
+           ->add('governorate')
            ->add('phone');
+        // Add listeners
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
     }
+    function onPreSubmit(FormEvent $event) {
+        $form = $event->getForm();
+        $data = $event->getData();
+        // Note that the data is not yet hydrated into the entity.
+        $form->add('delegation');
+//        $form->remove('save');
+
+    }
+
+
+
+
+
+
     public function configureOptions(OptionsResolver $resolver)
     {
 $resolver->setDefaults([
