@@ -1,0 +1,3042 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
+--
+-- Client :  localhost
+-- Généré le :  Lun 16 Octobre 2017 à 13:05
+-- Version du serveur :  5.7.19-0ubuntu0.16.04.1
+-- Version de PHP :  7.1.9-1+ubuntu16.04.1+deb.sury.org+1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `appC`
+--
+CREATE DATABASE IF NOT EXISTS `appC` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `appC`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activite`
+--
+
+CREATE TABLE `activite` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `delegation`
+--
+
+CREATE TABLE `delegation` (
+  `id` int(11) NOT NULL,
+  `governorate_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `delegation`
+--
+
+INSERT INTO `delegation` (`id`, `governorate_id`, `name`) VALUES
+(1, 1, 'ARIANA VILLE'),
+(2, 2, 'MANNOUBA'),
+(3, 3, 'EL MOUROUJ'),
+(4, 4, 'TUNIS-ESSIJOUMI-H'),
+(5, 5, 'BAB SAADOUN-H'),
+(6, 4, 'SIDI EL BACHIR-H'),
+(7, 6, 'MARSA-H'),
+(8, 7, 'MONASTIR'),
+(9, 8, 'SOUSSE-JAWHARA'),
+(10, 9, 'SAHLOUL'),
+(11, 10, 'GABES MEDINA'),
+(12, 11, 'JEBENIANA'),
+(13, 12, 'MEDENINE'),
+(14, 13, 'SFAX VILLE'),
+(15, 14, 'KAIROUAN NORD'),
+(16, 15, 'MENZEL BOURGUIBA'),
+(17, 16, 'NABEUL'),
+(18, 17, 'SILIANA'),
+(19, 18, 'TOZEUR'),
+(20, 19, 'LE KEF'),
+(21, 20, 'BIZERTE NORD'),
+(22, 21, 'DJERBA HOUMET ESSOUK'),
+(23, 22, 'ZAGHOUAN'),
+(24, 23, 'MAHDIA VILLE'),
+(25, 24, 'TATAOUINE'),
+(26, 25, 'SIDI BOUZID'),
+(27, 26, 'JENDOUBA'),
+(28, 27, 'BEN AROUS'),
+(29, 59, 'DAOUAR HICHER'),
+(30, 29, 'GROMBALIA'),
+(31, 6, 'LA GOULETTE'),
+(32, 30, 'GAFSA VILLE'),
+(33, 31, 'KEBILI'),
+(34, 32, 'KSAR HELAL'),
+(35, 33, 'KASSERINE-NOUR'),
+(36, 34, 'BEJA NORD'),
+(37, 35, 'TABARKA'),
+(38, 21, 'BEN GUERDANE'),
+(39, 36, 'CITE EL KHADRA'),
+(40, 37, 'MEDJEZ EL BAB'),
+(41, 36, 'CITE EL MAHRAGENE'),
+(42, 9, 'SOUSSE-KHEZAMA'),
+(43, 6, 'LES BERGES DU LAC'),
+(44, 38, 'MENZEL TEMIME'),
+(45, 14, 'KAIROUAN SUD'),
+(46, 39, 'MAHRES'),
+(47, 40, 'EL JEM'),
+(48, 41, 'MOKNINE'),
+(49, 42, 'METALAOUI'),
+(50, 43, 'KERKENAH'),
+(51, 21, 'ZARZIS'),
+(52, 4, 'EZZOUHOUR'),
+(53, 44, 'ENFIDHA'),
+(54, 45, 'MSAKEN'),
+(55, 4, 'BARDO-BOUCHOUCHA-ROMANA-OMRANE'),
+(56, 5, 'MEDINA-TUNIS'),
+(57, 64, 'RAOUED'),
+(58, 63, 'LA SOUKRA'),
+(59, 65, 'KALAAT LANDLOUS'),
+(60, 66, 'ETTADHAMEN'),
+(61, 46, 'MEGRINE'),
+(62, 46, 'RADES'),
+(63, 47, 'HAMMAM LIF'),
+(64, 4, 'CITE ETTAHRIR'),
+(65, 3, 'FOUCHANA'),
+(66, 3, 'MHAMEDIA'),
+(67, 48, 'MORNAG'),
+(68, 49, 'BIR BOURAGBA'),
+(69, 38, 'BENI KHIAR'),
+(70, 38, 'KELIBIA'),
+(71, 50, 'MORNAGUIA'),
+(72, 4, 'TUNIS-ESSIJOUMI-MELLASSINE'),
+(73, 6, 'MARSA'),
+(74, 51, 'MENZEH-BELVEDERE'),
+(75, 4, 'CITE IBN KHALDOUN'),
+(76, 66, 'MNIHLA'),
+(77, 52, 'EL ALIA'),
+(78, 52, 'RAS JEBAL'),
+(79, 9, 'HAMMAM SOUSSE'),
+(80, 41, 'JAMMEL'),
+(81, 53, 'KALAA KEBIRA'),
+(82, 23, 'MAHDIA HIBOUN'),
+(83, 54, 'SAHLINE'),
+(84, 8, 'SOUSSE VILLE'),
+(85, 9, 'SOUSSE-GHOUDRANE'),
+(86, 9, 'SOUSSE EZZOUHOUR'),
+(87, 13, 'SAKIET EDDAYER'),
+(88, 39, 'AGAREB'),
+(89, 13, 'CHIHIA'),
+(90, 13, 'SAKIET EZZIT'),
+(91, 13, 'CITE EL HABIB'),
+(92, 11, 'EL HENCHA'),
+(93, 13, 'EL AIN'),
+(94, 13, 'ROUTE KAYED MED'),
+(95, 29, 'BOUARGOUB'),
+(96, 55, 'EL HAMMA'),
+(97, 48, 'BOUMHEL'),
+(98, 4, 'EZZAHROUNI'),
+(99, 38, 'KORBA'),
+(100, 56, 'EL FAHS'),
+(101, 5, 'BAB BHAR-TUNIS CENTRE'),
+(102, 57, 'BOU HAJLA'),
+(103, 29, 'BENI KHALLED'),
+(104, 35, 'FERNANA'),
+(105, 4, 'SIDI HASSINE'),
+(106, 39, 'THYNA'),
+(107, 39, 'BIR ALI BEN KHLIFA'),
+(108, 37, 'NEFZA'),
+(109, 58, 'DEN DEN'),
+(110, 55, 'MARETH'),
+(111, 65, 'SIDI THABET'),
+(112, 13, 'SIDI MANSOUR'),
+(113, 35, 'BOU SALEM'),
+(114, 40, 'SOUASSI'),
+(115, 59, 'TEBOURBA'),
+(116, 40, 'CHORBANE'),
+(117, 46, 'EZZAHRA'),
+(118, 49, 'HAMMAMET'),
+(119, 29, 'MENZEL BOUZELFA'),
+(120, 38, 'EL HAOUARIA'),
+(121, 29, 'SOLIMAN'),
+(122, 40, 'BOUMERDES'),
+(123, 36, 'EL MANAR'),
+(124, 60, 'DAHMANI'),
+(125, 15, 'MATEUR'),
+(126, 19, 'LE SERS'),
+(127, 6, 'LE KRAM'),
+(128, 4, 'BARDO-KSAR SAID'),
+(129, 39, 'SEKHIRA'),
+(130, 13, 'MENZEL HEDI CHAKER'),
+(132, 39, 'EL GHRAIBA'),
+(133, 13, 'CENTRE VILLE'),
+(134, 13, 'GREMDA'),
+(135, 13, 'SALTANIA'),
+(136, 13, 'CAID M\'HAMED'),
+(137, 40, 'LA CHEBBA'),
+(138, 67, 'AR.V-EL MENZAH 7 - ENNASR II'),
+(139, 36, 'EL MENZAH DE 1 A 4'),
+(140, 59, 'JEDAIDA'),
+(141, 67, 'AR.V-EL MENZAH 5 ET 6'),
+(142, 59, 'OUED ELLIL'),
+(143, 50, 'BORJ EL AMRI'),
+(144, 50, 'EL BATTANE'),
+(145, 36, 'BAB BHAR-MONTPLAISIR'),
+(146, 16, 'DAR CHAABANE'),
+(147, 3, 'MEDINA JEDIDA'),
+(148, 56, 'BIR MCHERGA'),
+(149, 35, 'AIN DRAHEM'),
+(150, 16, 'Cité Sidi Amor'),
+(151, 41, 'OUERDANINE'),
+(152, 9, 'SOUSSE ERRIADH'),
+(153, 32, 'BEMBLA'),
+(154, 57, 'CHEBIKA'),
+(155, 32, 'TEBOULBA'),
+(156, 62, 'SIDI BOU ALI'),
+(157, 9, 'CHATT MERIEM'),
+(158, 62, 'AKOUDA'),
+(159, 9, 'ZAOUIET SOUSSE'),
+(160, 41, 'ZERAMDINE'),
+(161, 21, 'EL MAY'),
+(162, 63, 'LA SOUKRA-BORJ LOUZIR'),
+(163, 64, 'RAOUED-BORJ TOUIL'),
+(164, 64, 'RAOUED-EL GHAZALA'),
+(165, 64, 'RAOUED-COMPLEXE TECHNOLOGIQUE'),
+(166, 64, 'AR.V-RIADH LANDALOUS'),
+(167, 34, 'BEJA SUD'),
+(168, 37, 'TESTOUR'),
+(169, 37, 'GOUBELLAT'),
+(170, 37, 'TEBOURSOUK'),
+(171, 37, 'THIBAR'),
+(172, 34, 'AMDOUN'),
+(173, 47, 'HAMMAM CHATT'),
+(174, 52, 'GHAR ELMELH-AOUSJA'),
+(175, 52, 'JOUMINE'),
+(176, 20, 'BIZERTE SUD'),
+(177, 52, 'GHAR EL MELH'),
+(178, 15, 'GHEZALA'),
+(179, 20, 'JARZOUNA'),
+(180, 20, 'MENZEL ABDERRAHMEN'),
+(181, 20, 'MENZEL JEMIL'),
+(182, 52, 'RAS JEBAL- METLINE'),
+(183, 52, 'RAS JEBAL-RAFRAF'),
+(184, 15, 'SEJNANE'),
+(185, 52, 'RAS JEBAL-SOUNINE'),
+(186, 52, 'TINJA'),
+(187, 52, 'UTIQUE'),
+(188, 10, 'BOUCHAMMA'),
+(189, 10, 'CHENINI-GABES'),
+(190, 10, 'GABES SUD'),
+(191, 10, 'GABES HACHED'),
+(192, 10, 'GHANNOUCHE'),
+(194, 10, 'MENZEL HABIB'),
+(195, 55, 'METOUIA'),
+(196, 55, 'MATMATA'),
+(197, 55, 'NOUVELLE MATMATA'),
+(198, 55, 'OUEDHREF'),
+(199, 55, 'TEBOULBOU'),
+(200, 55, 'ZRIG'),
+(201, 42, 'BELKHIR'),
+(202, 30, 'GAFSA SUD'),
+(203, 42, 'EL GUETTAR'),
+(204, 42, 'EL KSAR'),
+(205, 30, 'GAFSA CITE ENNOUR'),
+(206, 42, 'MDHILLA'),
+(207, 42, 'MOULARES'),
+(208, 42, 'REDEYEF'),
+(209, 42, 'SENED'),
+(210, 42, 'SIDI AICH'),
+(211, 42, 'ZANOUCHE'),
+(212, 35, 'BALTA'),
+(213, 35, 'GHARDIMAOU'),
+(214, 35, 'OUED MLIZ'),
+(215, 57, 'AIN JALLOULA'),
+(216, 57, 'CHERARDA'),
+(217, 57, 'EL ALA'),
+(218, 57, 'HAFFOUZ'),
+(219, 57, 'HAJEB EL AYOUN'),
+(220, 57, 'MENZEL M\'HIRI'),
+(221, 57, 'NASRALLAH'),
+(222, 57, 'OUESLATIA'),
+(223, 57, 'SBIKHA'),
+(224, 57, 'SISSEB'),
+(225, 68, 'BOUZGUEM'),
+(226, 68, 'FERIANA'),
+(227, 68, 'FOUSSANA'),
+(228, 68, 'HASSI FRID'),
+(229, 68, 'JEDLIANE'),
+(230, 68, 'SBEITLA'),
+(231, 33, 'KASSERINE EZZOUHOUR'),
+(232, 68, 'KHEMOUDA'),
+(233, 68, 'LAYOUN'),
+(234, 68, 'MAJEL BEL ABBES'),
+(235, 68, 'SBIBA'),
+(236, 68, 'THALA'),
+(237, 68, 'THELEPTE'),
+(238, 31, 'SOUK EL AHAD'),
+(239, 31, 'DOUZ'),
+(240, 31, 'EL FAOUAR'),
+(241, 31, 'JEMINA'),
+(242, 60, 'JERISSA'),
+(243, 60, 'KALAA EL KHASBA'),
+(244, 60, 'KALAAT SINANE'),
+(245, 60, 'KSOUR'),
+(246, 60, 'NEBEUR'),
+(247, 60, 'SAKIET SIDI YOUSSEF'),
+(248, 60, 'TAJEROUINE'),
+(249, 60, 'TOUIREF'),
+(250, 6, 'CARTHAGE'),
+(251, 4, 'OMRANE.SUP-INTILAKA'),
+(252, 6, 'TAIB M\'HIRI-LAOUINA'),
+(253, 4, 'EL KABARIA-EL OUERDIA-IBN SINA'),
+(254, 67, 'AR.V-EL MENZEH 8ET9'),
+(255, 6, 'GAMMARTH'),
+(256, 4, 'JEBEL JELLOUD'),
+(257, 4, 'BARDO-KHAZNADAR'),
+(258, 6, 'MARSA ERRIADH'),
+(259, 6, 'MARSA SAF SAF'),
+(260, 6, 'CARTHAGE-SALAMBO'),
+(261, 6, 'CARTHAGE-SIDI BOUSAID'),
+(262, 6, 'MARSA-SIDI DAOUD'),
+(263, 69, 'BAB SOUIKA-BAB ELKHADHRA'),
+(264, 69, 'MEDINA-BAB MENARA'),
+(265, 69, 'BAB SOUIKA'),
+(266, 63, 'SOUKRA -CHARGUIA'),
+(267, 4, 'SIDI EL BACHIR'),
+(268, 5, 'EL OMRANE'),
+(269, 5, 'BAB BHAR-REPUBLIQUE'),
+(270, 40, 'CHIBA'),
+(271, 40, 'EL BRADAA'),
+(272, 40, 'EL HKAIMA'),
+(273, 40, 'GHEDABNA'),
+(274, 40, 'HBIRA'),
+(275, 40, 'KERKER'),
+(276, 40, 'KSOUR ESSAF'),
+(277, 40, 'MELLOULECH'),
+(278, 40, 'OULED CHAMAKH'),
+(279, 40, 'REJICHE'),
+(280, 40, 'SIDI ALOUANE'),
+(281, 40, 'SIDI ASKER'),
+(282, 70, 'BENI KHEDACHE'),
+(283, 70, 'BOU GHRARA'),
+(284, 21, 'CEDOUIKCH-MIDOUN'),
+(285, 21, 'ZARZIS-CHAMMAKH'),
+(286, 21, 'AJIM- DJERBA'),
+(287, 21, 'DJERBA-GUELLALA'),
+(288, 21, 'DJERBA MELLITA'),
+(289, 21, 'DJERBA MIDOUN'),
+(290, 21, 'ZARZIS-EL MOUENSA'),
+(291, 21, 'DJERBA- ERRIADH'),
+(292, 21, 'DJERBA-ESSOUANI'),
+(293, 12, 'MEDENINE-HASSI AMOR'),
+(294, 12, 'MEDENINE EL JADIDA'),
+(295, 70, 'SIDI MAKHLOUF'),
+(296, 21, 'ZARZIS-SOUIHEL'),
+(297, 7, 'AMIRAT EL FHOUL'),
+(298, 7, 'AMIRAT ELHOJJAJ'),
+(299, 7, 'AMIRAT TOUAZRA'),
+(300, 32, 'BEKALTA'),
+(301, 41, 'BENANE'),
+(302, 41, 'BENI HASSEN'),
+(303, 32, 'BOU HJAR'),
+(304, 41, 'CHERAHIL'),
+(305, 54, 'GHENADA'),
+(306, 7, 'KHENISS'),
+(307, 32, 'KSIBET MEDIOUNI'),
+(308, 32, 'LAMTA'),
+(309, 41, 'MAZDOUR'),
+(310, 41, 'MENZEL EL HAYET'),
+(311, 41, 'MENZEL ENNOUR'),
+(312, 41, 'MENZEL FERSI'),
+(313, 41, 'MENZEL HARB'),
+(314, 41, 'MENZEL KAMEL'),
+(315, 32, 'SAYADA'),
+(316, 54, 'SIDI AMEUR'),
+(317, 54, 'SIDI BANNOUR'),
+(318, 41, 'TOUZA'),
+(319, 41, 'ZAOUIET KONTEC'),
+(320, 38, 'AZMOUR'),
+(321, 49, 'BARRAKET ESSAHEL'),
+(322, 29, 'BELLI'),
+(323, 29, 'BIR DRASSEN'),
+(324, 29, 'BIR MROUA - TAKELSA'),
+(325, 38, 'DAR ALLOUCHE'),
+(326, 29, 'DIAR HOJJAJ'),
+(327, 38, 'EL MAAMOURA'),
+(328, 38, 'EL MIDA'),
+(329, 29, 'FARTOUNA'),
+(330, 29, 'FONDOUK JEDID'),
+(331, 38, 'HAMMAM EL GHEZAZ'),
+(332, 29, 'HAMMAM JEBLI'),
+(333, 38, 'KELIBIA OUEST'),
+(334, 38, 'MENZEL HORR'),
+(335, 16, 'NABEUL THAMEUR'),
+(336, 29, 'NIANOU'),
+(337, 29, 'SAHEB JEBEL'),
+(338, 38, 'TAZARKA'),
+(339, 49, 'YASMINE HAMMAMET'),
+(340, 49, 'ZAOUIET EL JEDIDI'),
+(341, 29, 'ZAOUIET EL MEGUEIS'),
+(342, 11, 'AOUABED'),
+(343, 11, 'BOU JARBOU'),
+(344, 13, 'CITE BOURGUIBA'),
+(345, 13, 'CITE EL BAHRI'),
+(346, 11, 'EL AMRA'),
+(347, 13, 'EL BOUSTEN'),
+(348, 11, 'EL GHERABA'),
+(349, 13, 'ENNIGROU'),
+(350, 13, 'ESSAADI'),
+(352, 39, 'GARGOUR'),
+(353, 39, 'HAJEB'),
+(354, 11, 'HAZEG'),
+(355, 13, 'KHALIJ'),
+(356, 11, 'KHAZZANET'),
+(357, 13, 'MERKEZ BOUASSIDA'),
+(358, 13, 'MERKEZ CHIHIA'),
+(359, 13, 'MERKEZ DEROUICHE'),
+(360, 13, 'MERKEZ EL ALIA'),
+(361, 13, 'MERKEZ KAMMOUN'),
+(362, 13, 'MERKEZ KASSAS'),
+(363, 13, 'MERKEZ OUALI'),
+(364, 13, 'MERKEZ SAHNOUN'),
+(365, 13, 'MERKEZ SEBAI'),
+(366, 13, 'MERZEZ LAJMI'),
+(367, 39, 'NAKTA CHAFFAR'),
+(368, 13, 'OUED CHAABOUNI'),
+(369, 13, 'OUED RAMEL'),
+(370, 13, 'OULED BOUSMIR'),
+(371, 43, 'RAMLA - KERKENNAH'),
+(372, 13, 'SIDI ABBES'),
+(373, 11, 'SIDI SALAH'),
+(374, 71, 'BEN OUN'),
+(375, 71, 'BIR EL HAFFEY'),
+(376, 71, 'CEBBALA'),
+(377, 71, 'EL FAIEDH'),
+(378, 71, 'JILMA'),
+(379, 71, 'LASSOUEDA'),
+(380, 71, 'MEKNASSY'),
+(381, 71, 'MENZEL BOUZAIENE'),
+(382, 71, 'MEZZOUNA'),
+(383, 71, 'OULED HAFFOUZ'),
+(384, 71, 'REGUEB'),
+(385, 71, 'SAIDA'),
+(386, 71, 'SOUK JEDID'),
+(387, 61, 'BARGOU'),
+(388, 61, 'BOU ROUIS'),
+(389, 61, 'BOUARADA'),
+(390, 61, 'EL AROUSSA'),
+(391, 61, 'GAAFOUR'),
+(392, 61, 'KESRA'),
+(393, 61, 'LE KRIB'),
+(394, 61, 'MAKTHAR'),
+(395, 61, 'ROHIA'),
+(396, 45, 'BENI KALTHOUM'),
+(397, 44, 'BOUFICHA'),
+(398, 45, 'EL BORJINE'),
+(399, 44, 'HERGLA'),
+(400, 53, 'KALAA SEGHIRA'),
+(401, 9, 'SOUSSE-KANTAOUI'),
+(402, 45, 'KENAIS'),
+(403, 62, 'KONDAR'),
+(404, 45, 'KROUSSIA'),
+(405, 9, 'KSIBET SOUSSE'),
+(406, 45, 'MESSADINE'),
+(407, 53, 'SIDI ELHANI'),
+(408, 9, 'SOUSSE IBN KHALDOUN'),
+(409, 24, 'SMAR'),
+(410, 24, 'BIR LAHMAR'),
+(411, 24, 'GHOMRASSEN'),
+(412, 24, 'REMADA'),
+(413, 18, 'DEGACHE'),
+(414, 18, 'EL HAMMA DU JERID'),
+(415, 18, 'HEZOUA'),
+(416, 18, 'NEFTA'),
+(417, 18, 'TAMEGHZA'),
+(418, 56, 'HAMMAM ZRIBA'),
+(419, 56, 'JEBEL OUAST'),
+(420, 56, 'NADHOUR'),
+(421, 56, 'SAOUAF'),
+(422, 3, 'M\'HAMDIA'),
+(423, 9, 'SOUSSE SIDI ABDELHAMID'),
+(425, 1, 'ARIANA MEDINA'),
+(426, 4, 'KSAR SAID'),
+(427, 30, 'GAFSA'),
+(429, 9, 'SOUSSE'),
+(430, 4, 'Ras Tabia'),
+(431, 13, 'SFAX'),
+(432, 72, 'GALAA'),
+(433, 10, 'GABES VILLE'),
+(434, 14, 'KAIRAOUAN VILLE'),
+(435, 5, 'TUNIS EL OMRANE'),
+(436, 4, 'CITE EZZOUHOUR'),
+(437, 5, 'TUNIS RP (VILLE)'),
+(438, 52, 'RAS JEBEL'),
+(440, 23, 'MAHDIA'),
+(443, 27, 'BEN AROUS EST'),
+(444, 4, 'CITE INTILAKA'),
+(447, 4, 'BARDO'),
+(450, 34, 'BEJA VILLE'),
+(451, 11, 'EL HANCHA'),
+(453, 64, 'PARC TECHNOLOGIQUE'),
+(455, 52, 'AOUSJA'),
+(459, 47, 'HAMMAM-LIF'),
+(461, 4, 'Mellassine'),
+(462, 79, 'HOUMET ESSOUK'),
+(463, 16, 'CITE SIDI AMOR'),
+(464, 3, 'EL YASMINETTE'),
+(465, 29, 'SOMAA');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `governorate`
+--
+
+CREATE TABLE `governorate` (
+  `id` int(11) NOT NULL,
+  `sector_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `governorate`
+--
+
+INSERT INTO `governorate` (`id`, `sector_id`, `name`) VALUES
+(1, 1, 'ARIANA'),
+(2, 1, 'MANNOUBA'),
+(3, 1, 'BEN AROUS 3'),
+(4, 1, 'TUNIS 3'),
+(5, 1, 'TUNIS 1A'),
+(6, 1, 'TUNIS 2'),
+(7, 3, 'MONASTIR'),
+(8, 3, 'SOUSSE 1'),
+(9, 3, 'SOUSSE 2B'),
+(10, 2, 'GABES'),
+(11, 2, 'SFAX 3'),
+(12, 2, 'MEDENINE'),
+(13, 2, 'SFAX 1A'),
+(14, 3, 'KAIRAOUAN'),
+(15, 1, 'BIZERTE 1'),
+(16, 3, 'NABEUL'),
+(17, 1, 'SILIANA'),
+(18, 2, 'TOZEUR'),
+(19, 1, 'KEF'),
+(20, 1, 'BIZERTE'),
+(21, 2, 'DJERBA-ZARZIS'),
+(22, 1, 'ZAGHOUAN'),
+(23, 3, 'MAHDIA'),
+(24, 2, 'TATAOUINE'),
+(25, 2, 'SIDI BOUZID'),
+(26, 1, 'JENDOUBA'),
+(27, 1, 'BEN AROUS'),
+(29, 3, 'NABEUL 3'),
+(30, 2, 'GAFSA'),
+(31, 2, 'KEBILI'),
+(32, 3, 'MONASTIR 1'),
+(33, 2, 'KASSERINE'),
+(34, 1, 'BEJA'),
+(35, 1, 'JENDOUBA PERI'),
+(36, 1, 'TUNIS 4'),
+(37, 1, 'BEJA PERI'),
+(38, 3, 'NABEUL 2'),
+(39, 2, 'SFAX 1B'),
+(40, 3, 'MAHDIA PERI'),
+(41, 3, 'MONASTIR 2'),
+(42, 2, 'GAFSA PERI'),
+(43, 2, 'SFAX 2'),
+(44, 3, 'SOUSSE 2C'),
+(45, 3, 'SOUSSE 4'),
+(46, 1, 'BEN AROUS 4'),
+(47, 1, 'BEN AROUS 1'),
+(48, 1, 'BEN AROUS 2'),
+(49, 3, 'NABEUL 1'),
+(50, 1, 'MANNOUBA 1'),
+(51, 1, 'TUNIS 1C'),
+(52, 1, 'BIZERTE 2'),
+(53, 3, 'SOUSSE 3'),
+(54, 3, 'MONASTIR 3'),
+(55, 2, 'GABES PERI'),
+(56, 1, 'ZAGHOUAN PERI'),
+(57, 3, 'KAIRAOUAN PERI'),
+(58, 1, 'MANNOUBA 3'),
+(59, 1, 'MANNOUBA 2'),
+(60, 1, 'KEF PERI'),
+(61, 1, 'SILIANA PERI'),
+(62, 3, 'SOUSSE 2A'),
+(63, 1, 'ARIANA 2'),
+(64, 1, 'ARIANA 1'),
+(65, 1, 'ARIANA 5'),
+(66, 1, 'ARIANA 3'),
+(67, 1, 'ARIANA 4'),
+(68, 2, 'KASSERINE PERI'),
+(69, 1, 'TUNIS 1B'),
+(70, 2, 'MEDENINE 1'),
+(71, 2, 'SIDI BOUZID PERI'),
+(72, 2, 'KEBILI PERI'),
+(75, 2, 'SFAX'),
+(79, 2, 'DJERBA');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `groupe`
+--
+
+CREATE TABLE `groupe` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `groupe`
+--
+
+INSERT INTO `groupe` (`id`, `name`) VALUES
+(1, 'Medecins'),
+(2, 'Pharmacie'),
+(3, 'Pharmacie - grossiste'),
+(4, 'Autre');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `potential`
+--
+
+CREATE TABLE `potential` (
+  `id` int(11) NOT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `prospect`
+--
+
+CREATE TABLE `prospect` (
+  `id` int(11) NOT NULL,
+  `speciality_id` int(11) NOT NULL,
+  `governorate_id` int(11) NOT NULL,
+  `activite_id` int(11) NOT NULL,
+  `potential_id` int(11) DEFAULT NULL,
+  `delegation_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gsm` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `public` tinyint(1) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sector`
+--
+
+CREATE TABLE `sector` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `sector`
+--
+
+INSERT INTO `sector` (`id`, `name`) VALUES
+(1, 'Nord'),
+(2, 'Sud'),
+(3, 'Centre'),
+(4, 'GMS'),
+(5, 'Marketing');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `speciality`
+--
+
+CREATE TABLE `speciality` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `groupe_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `speciality`
+--
+
+INSERT INTO `speciality` (`id`, `name`, `groupe_id`) VALUES
+(1, 'ANESTHESIE REANIMATION', 1),
+(2, 'CARDIOLOGIE', 1),
+(3, 'CCVT', 1),
+(4, 'CHIRURGIE GENERALE', 1),
+(5, 'CHIRURGIE ORTHOPEDIQUE', 1),
+(6, 'DERMATOLOGIE', 1),
+(7, 'ENDOCRINOLOGIE', 1),
+(8, 'GASTRO-ENTEROLOGIE', 1),
+(9, 'GYNECOLOGIE-OBSTETRIQUE', 1),
+(10, 'HEMATOLOGIE CLINIQUE', 1),
+(11, 'MALADIES INFECTIEUSES', 1),
+(12, 'MEDECINE CARCINOLOGIQUE', 1),
+(13, 'MEDECINE GENERALE', 1),
+(14, 'MEDECINE INTERNE', 1),
+(15, 'MEDECINE PHYSIQUE', 1),
+(17, 'NEPHROLOGIE', 1),
+(18, 'PSYCHIATRIE', 1),
+(19, 'NEUROLOGIE', 1),
+(20, 'NEURO-CHIRURGIE', 1),
+(21, 'PNEUMO-PHTISIOLOGIE', 1),
+(22, 'O.R.L.', 1),
+(23, 'RHUMATOLOGIE', 1),
+(24, 'UROLOGIE', 1),
+(25, 'REA MED', 1),
+(26, 'PHARMACIEN HOSPITALIER', 2),
+(29, 'PEDIATRIE', 1),
+(30, 'NUTRITION', 4),
+(31, 'INFERMIER', 4),
+(32, 'SAGE FEMME', 4),
+(33, 'NEONATOLOGIE', 1),
+(34, 'MEDECIN DENTISTE', 1),
+(35, 'PHARMACIEN D\'OFFICINE DE JOUR', 2),
+(36, 'OPHTALMOLOGIE', 1),
+(37, 'PHYSIOTHERAPIE (KINESITHERAPIE)', 4),
+(38, 'RADIOLOGIE (DIAGNOSTIC)', 4),
+(39, 'MEDECINE DU TRAVAIL', 1),
+(40, 'LABORATOIRE D\'ANALYSE', 4),
+(41, 'PHARMACIEN D\'OFFICINE DE NUIT', 2),
+(42, 'CHIRURGIE PLASTIQUE & REPARATRICE', 1),
+(43, 'RADIOTHERAPIE', 1),
+(44, 'ORTHOPEDIE DENTO FACIALE', 1),
+(45, 'CHIRURGIE CARCINOLOGIE', 1),
+(46, 'STOMATOLOGIE ET CHIRURGIE MAXILLO-FACIALE', 1),
+(47, 'CHIRURGIE PEDIATRIQUE', 1),
+(48, 'ANATOMIE PATHOLOGIQUE', 1),
+(49, 'SPEC MANQUANTE !!', 1),
+(50, 'PHYSIOLOGIE & EXPLORATION FONCTIONNELLE', 4),
+(51, 'PEDO -PSYCHIATRIE', 1),
+(52, 'BIOPHYSIQUE ET MEDECINE NUCLEAIRE', 1),
+(53, 'PHARMACIEN GROSSISTE', 3),
+(54, 'TECHNICIEN DE PEDIATRIE', 4),
+(56, 'URGENCE', 1),
+(59, 'REANIMATION MEDICALE', 1),
+(60, 'PSYCHIATRIE INFANTILE', 1);
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `activite`
+--
+ALTER TABLE `activite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `delegation`
+--
+ALTER TABLE `delegation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_292F436DB5FFB04E` (`governorate_id`);
+
+--
+-- Index pour la table `governorate`
+--
+ALTER TABLE `governorate`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_85F5D6BBDE95C867` (`sector_id`);
+
+--
+-- Index pour la table `groupe`
+--
+ALTER TABLE `groupe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `potential`
+--
+ALTER TABLE `potential`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `prospect`
+--
+ALTER TABLE `prospect`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_C9CE8C7D3B5A08D7` (`speciality_id`),
+  ADD KEY `IDX_C9CE8C7DB5FFB04E` (`governorate_id`),
+  ADD KEY `IDX_C9CE8C7D9B0F88B1` (`activite_id`),
+  ADD KEY `IDX_C9CE8C7DCBFAD62B` (`potential_id`),
+  ADD KEY `IDX_C9CE8C7D56CBBCF5` (`delegation_id`);
+
+--
+-- Index pour la table `sector`
+--
+ALTER TABLE `sector`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `speciality`
+--
+ALTER TABLE `speciality`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_F3D7A08E7A45358C` (`groupe_id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `activite`
+--
+ALTER TABLE `activite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `delegation`
+--
+ALTER TABLE `delegation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
+--
+-- AUTO_INCREMENT pour la table `governorate`
+--
+ALTER TABLE `governorate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+--
+-- AUTO_INCREMENT pour la table `groupe`
+--
+ALTER TABLE `groupe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `potential`
+--
+ALTER TABLE `potential`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `prospect`
+--
+ALTER TABLE `prospect`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `sector`
+--
+ALTER TABLE `sector`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `speciality`
+--
+ALTER TABLE `speciality`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `delegation`
+--
+ALTER TABLE `delegation`
+  ADD CONSTRAINT `FK_292F436DB5FFB04E` FOREIGN KEY (`governorate_id`) REFERENCES `governorate` (`id`);
+
+--
+-- Contraintes pour la table `governorate`
+--
+ALTER TABLE `governorate`
+  ADD CONSTRAINT `FK_85F5D6BBDE95C867` FOREIGN KEY (`sector_id`) REFERENCES `sector` (`id`);
+
+--
+-- Contraintes pour la table `prospect`
+--
+ALTER TABLE `prospect`
+  ADD CONSTRAINT `FK_C9CE8C7D3B5A08D7` FOREIGN KEY (`speciality_id`) REFERENCES `speciality` (`id`),
+  ADD CONSTRAINT `FK_C9CE8C7D56CBBCF5` FOREIGN KEY (`delegation_id`) REFERENCES `delegation` (`id`),
+  ADD CONSTRAINT `FK_C9CE8C7D9B0F88B1` FOREIGN KEY (`activite_id`) REFERENCES `activite` (`id`),
+  ADD CONSTRAINT `FK_C9CE8C7DB5FFB04E` FOREIGN KEY (`governorate_id`) REFERENCES `governorate` (`id`),
+  ADD CONSTRAINT `FK_C9CE8C7DCBFAD62B` FOREIGN KEY (`potential_id`) REFERENCES `potential` (`id`);
+
+--
+-- Contraintes pour la table `speciality`
+--
+ALTER TABLE `speciality`
+  ADD CONSTRAINT `FK_F3D7A08E7A45358C` FOREIGN KEY (`groupe_id`) REFERENCES `groupe` (`id`);
+--
+-- Base de données :  `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activite`
+--
+
+CREATE TABLE `activite` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `activite`
+--
+
+INSERT INTO `activite` (`id`, `nom`) VALUES
+(1, 'CLINIQUE'),
+(2, 'COLLECTIVITE'),
+(3, 'DISPENSAIRE'),
+(4, 'GROSSISTE MEDICAMENT'),
+(5, 'GROSSISTE PARA'),
+(6, 'HOSPITALIER'),
+(7, 'PRIVE');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `affectation`
+--
+
+CREATE TABLE `affectation` (
+  `id` int(11) NOT NULL,
+  `id_prospect` int(11) DEFAULT NULL,
+  `id_deleg` int(11) DEFAULT NULL,
+  `affecter_par` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `delegation`
+--
+
+CREATE TABLE `delegation` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `governorate_id` int(11) DEFAULT NULL,
+  `nom` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `delegation`
+--
+
+INSERT INTO `delegation` (`id`, `governorate_id`, `nom`) VALUES
+(1, 1, 'ARIANA VILLE'),
+(2, 2, 'MANNOUBA'),
+(3, 3, 'EL MOUROUJ'),
+(4, 4, 'TUNIS-ESSIJOUMI-H'),
+(5, 5, 'BAB SAADOUN-H'),
+(6, 4, 'SIDI EL BACHIR-H'),
+(7, 6, 'MARSA-H'),
+(8, 7, 'MONASTIR'),
+(9, 8, 'SOUSSE-JAWHARA'),
+(10, 9, 'SAHLOUL'),
+(11, 10, 'GABES MEDINA'),
+(12, 11, 'JEBENIANA'),
+(13, 12, 'MEDENINE'),
+(14, 13, 'SFAX VILLE'),
+(15, 14, 'KAIROUAN NORD'),
+(16, 15, 'MENZEL BOURGUIBA'),
+(17, 16, 'NABEUL'),
+(18, 17, 'SILIANA'),
+(19, 18, 'TOZEUR'),
+(20, 19, 'LE KEF'),
+(21, 20, 'BIZERTE NORD'),
+(22, 21, 'DJERBA HOUMET ESSOUK'),
+(23, 22, 'ZAGHOUAN'),
+(24, 23, 'MAHDIA VILLE'),
+(25, 24, 'TATAOUINE'),
+(26, 25, 'SIDI BOUZID'),
+(27, 26, 'JENDOUBA'),
+(28, 27, 'BEN AROUS'),
+(29, 59, 'DAOUAR HICHER'),
+(30, 29, 'GROMBALIA'),
+(31, 6, 'LA GOULETTE'),
+(32, 30, 'GAFSA VILLE'),
+(33, 31, 'KEBILI'),
+(34, 32, 'KSAR HELAL'),
+(35, 33, 'KASSERINE-NOUR'),
+(36, 34, 'BEJA NORD'),
+(37, 35, 'TABARKA'),
+(38, 21, 'BEN GUERDANE'),
+(39, 36, 'CITE EL KHADRA'),
+(40, 37, 'MEDJEZ EL BAB'),
+(41, 36, 'CITE EL MAHRAGENE'),
+(42, 9, 'SOUSSE-KHEZAMA'),
+(43, 6, 'LES BERGES DU LAC'),
+(44, 38, 'MENZEL TEMIME'),
+(45, 14, 'KAIROUAN SUD'),
+(46, 39, 'MAHRES'),
+(47, 40, 'EL JEM'),
+(48, 41, 'MOKNINE'),
+(49, 42, 'METALAOUI'),
+(50, 43, 'KERKENAH'),
+(51, 21, 'ZARZIS'),
+(52, 4, 'EZZOUHOUR'),
+(53, 44, 'ENFIDHA'),
+(54, 45, 'MSAKEN'),
+(55, 4, 'BARDO-BOUCHOUCHA-ROMANA-OMRANE'),
+(56, 5, 'MEDINA-TUNIS'),
+(57, 64, 'RAOUED'),
+(58, 63, 'LA SOUKRA'),
+(59, 65, 'KALAAT LANDLOUS'),
+(60, 66, 'ETTADHAMEN'),
+(61, 46, 'MEGRINE'),
+(62, 46, 'RADES'),
+(63, 47, 'HAMMAM LIF'),
+(64, 4, 'CITE ETTAHRIR'),
+(65, 3, 'FOUCHANA'),
+(66, 3, 'MHAMEDIA'),
+(67, 48, 'MORNAG'),
+(68, 49, 'BIR BOURAGBA'),
+(69, 38, 'BENI KHIAR'),
+(70, 38, 'KELIBIA'),
+(71, 50, 'MORNAGUIA'),
+(72, 4, 'TUNIS-ESSIJOUMI-MELLASSINE'),
+(73, 6, 'MARSA'),
+(74, 51, 'MENZEH-BELVEDERE'),
+(75, 4, 'CITE IBN KHALDOUN'),
+(76, 66, 'MNIHLA'),
+(77, 52, 'EL ALIA'),
+(78, 52, 'RAS JEBAL'),
+(79, 9, 'HAMMAM SOUSSE'),
+(80, 41, 'JAMMEL'),
+(81, 53, 'KALAA KEBIRA'),
+(82, 23, 'MAHDIA HIBOUN'),
+(83, 54, 'SAHLINE'),
+(84, 8, 'SOUSSE VILLE'),
+(85, 9, 'SOUSSE-GHOUDRANE'),
+(86, 9, 'SOUSSE EZZOUHOUR'),
+(87, 13, 'SAKIET EDDAYER'),
+(88, 39, 'AGAREB'),
+(89, 13, 'CHIHIA'),
+(90, 13, 'SAKIET EZZIT'),
+(91, 13, 'CITE EL HABIB'),
+(92, 11, 'EL HENCHA'),
+(93, 13, 'EL AIN'),
+(94, 13, 'ROUTE KAYED MED'),
+(95, 29, 'BOUARGOUB'),
+(96, 55, 'EL HAMMA'),
+(97, 48, 'BOUMHEL'),
+(98, 4, 'EZZAHROUNI'),
+(99, 38, 'KORBA'),
+(100, 56, 'EL FAHS'),
+(101, 5, 'BAB BHAR-TUNIS CENTRE'),
+(102, 57, 'BOU HAJLA'),
+(103, 29, 'BENI KHALLED'),
+(104, 35, 'FERNANA'),
+(105, 4, 'SIDI HASSINE'),
+(106, 39, 'THYNA'),
+(107, 39, 'BIR ALI BEN KHLIFA'),
+(108, 37, 'NEFZA'),
+(109, 58, 'DEN DEN'),
+(110, 55, 'MARETH'),
+(111, 65, 'SIDI THABET'),
+(112, 13, 'SIDI MANSOUR'),
+(113, 35, 'BOU SALEM'),
+(114, 40, 'SOUASSI'),
+(115, 59, 'TEBOURBA'),
+(116, 40, 'CHORBANE'),
+(117, 46, 'EZZAHRA'),
+(118, 49, 'HAMMAMET'),
+(119, 29, 'MENZEL BOUZELFA'),
+(120, 38, 'EL HAOUARIA'),
+(121, 29, 'SOLIMAN'),
+(122, 40, 'BOUMERDES'),
+(123, 36, 'EL MANAR'),
+(124, 60, 'DAHMANI'),
+(125, 15, 'MATEUR'),
+(126, 19, 'LE SERS'),
+(127, 6, 'LE KRAM'),
+(128, 4, 'BARDO-KSAR SAID'),
+(129, 39, 'SEKHIRA'),
+(130, 13, 'MENZEL HEDI CHAKER'),
+(132, 39, 'EL GHRAIBA'),
+(133, 13, 'CENTRE VILLE'),
+(134, 13, 'GREMDA'),
+(135, 13, 'SALTANIA'),
+(136, 13, 'CAID M\'HAMED'),
+(137, 40, 'LA CHEBBA'),
+(138, 67, 'AR.V-EL MENZAH 7 - ENNASR II'),
+(139, 36, 'EL MENZAH DE 1 A 4'),
+(140, 59, 'JEDAIDA'),
+(141, 67, 'AR.V-EL MENZAH 5 ET 6'),
+(142, 59, 'OUED ELLIL'),
+(143, 50, 'BORJ EL AMRI'),
+(144, 50, 'EL BATTANE'),
+(145, 36, 'BAB BHAR-MONTPLAISIR'),
+(146, 16, 'DAR CHAABANE'),
+(147, 3, 'MEDINA JEDIDA'),
+(148, 56, 'BIR MCHERGA'),
+(149, 35, 'AIN DRAHEM'),
+(150, 16, 'Cité Sidi Amor'),
+(151, 41, 'OUERDANINE'),
+(152, 9, 'SOUSSE ERRIADH'),
+(153, 32, 'BEMBLA'),
+(154, 57, 'CHEBIKA'),
+(155, 32, 'TEBOULBA'),
+(156, 62, 'SIDI BOU ALI'),
+(157, 9, 'CHATT MERIEM'),
+(158, 62, 'AKOUDA'),
+(159, 9, 'ZAOUIET SOUSSE'),
+(160, 41, 'ZERAMDINE'),
+(161, 21, 'EL MAY'),
+(162, 63, 'LA SOUKRA-BORJ LOUZIR'),
+(163, 64, 'RAOUED-BORJ TOUIL'),
+(164, 64, 'RAOUED-EL GHAZALA'),
+(165, 64, 'RAOUED-COMPLEXE TECHNOLOGIQUE'),
+(166, 64, 'AR.V-RIADH LANDALOUS'),
+(167, 34, 'BEJA SUD'),
+(168, 37, 'TESTOUR'),
+(169, 37, 'GOUBELLAT'),
+(170, 37, 'TEBOURSOUK'),
+(171, 37, 'THIBAR'),
+(172, 34, 'AMDOUN'),
+(173, 47, 'HAMMAM CHATT'),
+(174, 52, 'GHAR ELMELH-AOUSJA'),
+(175, 52, 'JOUMINE'),
+(176, 20, 'BIZERTE SUD'),
+(177, 52, 'GHAR EL MELH'),
+(178, 15, 'GHEZALA'),
+(179, 20, 'JARZOUNA'),
+(180, 20, 'MENZEL ABDERRAHMEN'),
+(181, 20, 'MENZEL JEMIL'),
+(182, 52, 'RAS JEBAL- METLINE'),
+(183, 52, 'RAS JEBAL-RAFRAF'),
+(184, 15, 'SEJNANE'),
+(185, 52, 'RAS JEBAL-SOUNINE'),
+(186, 52, 'TINJA'),
+(187, 52, 'UTIQUE'),
+(188, 10, 'BOUCHAMMA'),
+(189, 10, 'CHENINI-GABES'),
+(190, 10, 'GABES SUD'),
+(191, 10, 'GABES HACHED'),
+(192, 10, 'GHANNOUCHE'),
+(194, 10, 'MENZEL HABIB'),
+(195, 55, 'METOUIA'),
+(196, 55, 'MATMATA'),
+(197, 55, 'NOUVELLE MATMATA'),
+(198, 55, 'OUEDHREF'),
+(199, 55, 'TEBOULBOU'),
+(200, 55, 'ZRIG'),
+(201, 42, 'BELKHIR'),
+(202, 30, 'GAFSA SUD'),
+(203, 42, 'EL GUETTAR'),
+(204, 42, 'EL KSAR'),
+(205, 30, 'GAFSA CITE ENNOUR'),
+(206, 42, 'MDHILLA'),
+(207, 42, 'MOULARES'),
+(208, 42, 'REDEYEF'),
+(209, 42, 'SENED'),
+(210, 42, 'SIDI AICH'),
+(211, 42, 'ZANOUCHE'),
+(212, 35, 'BALTA'),
+(213, 35, 'GHARDIMAOU'),
+(214, 35, 'OUED MLIZ'),
+(215, 57, 'AIN JALLOULA'),
+(216, 57, 'CHERARDA'),
+(217, 57, 'EL ALA'),
+(218, 57, 'HAFFOUZ'),
+(219, 57, 'HAJEB EL AYOUN'),
+(220, 57, 'MENZEL M\'HIRI'),
+(221, 57, 'NASRALLAH'),
+(222, 57, 'OUESLATIA'),
+(223, 57, 'SBIKHA'),
+(224, 57, 'SISSEB'),
+(225, 68, 'BOUZGUEM'),
+(226, 68, 'FERIANA'),
+(227, 68, 'FOUSSANA'),
+(228, 68, 'HASSI FRID'),
+(229, 68, 'JEDLIANE'),
+(230, 68, 'SBEITLA'),
+(231, 33, 'KASSERINE EZZOUHOUR'),
+(232, 68, 'KHEMOUDA'),
+(233, 68, 'LAYOUN'),
+(234, 68, 'MAJEL BEL ABBES'),
+(235, 68, 'SBIBA'),
+(236, 68, 'THALA'),
+(237, 68, 'THELEPTE'),
+(238, 31, 'SOUK EL AHAD'),
+(239, 31, 'DOUZ'),
+(240, 31, 'EL FAOUAR'),
+(241, 31, 'JEMINA'),
+(242, 60, 'JERISSA'),
+(243, 60, 'KALAA EL KHASBA'),
+(244, 60, 'KALAAT SINANE'),
+(245, 60, 'KSOUR'),
+(246, 60, 'NEBEUR'),
+(247, 60, 'SAKIET SIDI YOUSSEF'),
+(248, 60, 'TAJEROUINE'),
+(249, 60, 'TOUIREF'),
+(250, 6, 'CARTHAGE'),
+(251, 4, 'OMRANE.SUP-INTILAKA'),
+(252, 6, 'TAIB M\'HIRI-LAOUINA'),
+(253, 4, 'EL KABARIA-EL OUERDIA-IBN SINA'),
+(254, 67, 'AR.V-EL MENZEH 8ET9'),
+(255, 6, 'GAMMARTH'),
+(256, 4, 'JEBEL JELLOUD'),
+(257, 4, 'BARDO-KHAZNADAR'),
+(258, 6, 'MARSA ERRIADH'),
+(259, 6, 'MARSA SAF SAF'),
+(260, 6, 'CARTHAGE-SALAMBO'),
+(261, 6, 'CARTHAGE-SIDI BOUSAID'),
+(262, 6, 'MARSA-SIDI DAOUD'),
+(263, 69, 'BAB SOUIKA-BAB ELKHADHRA'),
+(264, 69, 'MEDINA-BAB MENARA'),
+(265, 69, 'BAB SOUIKA'),
+(266, 63, 'SOUKRA -CHARGUIA'),
+(267, 4, 'SIDI EL BACHIR'),
+(268, 5, 'EL OMRANE'),
+(269, 5, 'BAB BHAR-REPUBLIQUE'),
+(270, 40, 'CHIBA'),
+(271, 40, 'EL BRADAA'),
+(272, 40, 'EL HKAIMA'),
+(273, 40, 'GHEDABNA'),
+(274, 40, 'HBIRA'),
+(275, 40, 'KERKER'),
+(276, 40, 'KSOUR ESSAF'),
+(277, 40, 'MELLOULECH'),
+(278, 40, 'OULED CHAMAKH'),
+(279, 40, 'REJICHE'),
+(280, 40, 'SIDI ALOUANE'),
+(281, 40, 'SIDI ASKER'),
+(282, 70, 'BENI KHEDACHE'),
+(283, 70, 'BOU GHRARA'),
+(284, 21, 'CEDOUIKCH-MIDOUN'),
+(285, 21, 'ZARZIS-CHAMMAKH'),
+(286, 21, 'AJIM- DJERBA'),
+(287, 21, 'DJERBA-GUELLALA'),
+(288, 21, 'DJERBA MELLITA'),
+(289, 21, 'DJERBA MIDOUN'),
+(290, 21, 'ZARZIS-EL MOUENSA'),
+(291, 21, 'DJERBA- ERRIADH'),
+(292, 21, 'DJERBA-ESSOUANI'),
+(293, 12, 'MEDENINE-HASSI AMOR'),
+(294, 12, 'MEDENINE EL JADIDA'),
+(295, 70, 'SIDI MAKHLOUF'),
+(296, 21, 'ZARZIS-SOUIHEL'),
+(297, 7, 'AMIRAT EL FHOUL'),
+(298, 7, 'AMIRAT ELHOJJAJ'),
+(299, 7, 'AMIRAT TOUAZRA'),
+(300, 32, 'BEKALTA'),
+(301, 41, 'BENANE'),
+(302, 41, 'BENI HASSEN'),
+(303, 32, 'BOU HJAR'),
+(304, 41, 'CHERAHIL'),
+(305, 54, 'GHENADA'),
+(306, 7, 'KHENISS'),
+(307, 32, 'KSIBET MEDIOUNI'),
+(308, 32, 'LAMTA'),
+(309, 41, 'MAZDOUR'),
+(310, 41, 'MENZEL EL HAYET'),
+(311, 41, 'MENZEL ENNOUR'),
+(312, 41, 'MENZEL FERSI'),
+(313, 41, 'MENZEL HARB'),
+(314, 41, 'MENZEL KAMEL'),
+(315, 32, 'SAYADA'),
+(316, 54, 'SIDI AMEUR'),
+(317, 54, 'SIDI BANNOUR'),
+(318, 41, 'TOUZA'),
+(319, 41, 'ZAOUIET KONTEC'),
+(320, 38, 'AZMOUR'),
+(321, 49, 'BARRAKET ESSAHEL'),
+(322, 29, 'BELLI'),
+(323, 29, 'BIR DRASSEN'),
+(324, 29, 'BIR MROUA - TAKELSA'),
+(325, 38, 'DAR ALLOUCHE'),
+(326, 29, 'DIAR HOJJAJ'),
+(327, 38, 'EL MAAMOURA'),
+(328, 38, 'EL MIDA'),
+(329, 29, 'FARTOUNA'),
+(330, 29, 'FONDOUK JEDID'),
+(331, 38, 'HAMMAM EL GHEZAZ'),
+(332, 29, 'HAMMAM JEBLI'),
+(333, 38, 'KELIBIA OUEST'),
+(334, 38, 'MENZEL HORR'),
+(335, 16, 'NABEUL THAMEUR'),
+(336, 29, 'NIANOU'),
+(337, 29, 'SAHEB JEBEL'),
+(338, 38, 'TAZARKA'),
+(339, 49, 'YASMINE HAMMAMET'),
+(340, 49, 'ZAOUIET EL JEDIDI'),
+(341, 29, 'ZAOUIET EL MEGUEIS'),
+(342, 11, 'AOUABED'),
+(343, 11, 'BOU JARBOU'),
+(344, 13, 'CITE BOURGUIBA'),
+(345, 13, 'CITE EL BAHRI'),
+(346, 11, 'EL AMRA'),
+(347, 13, 'EL BOUSTEN'),
+(348, 11, 'EL GHERABA'),
+(349, 13, 'ENNIGROU'),
+(350, 13, 'ESSAADI'),
+(352, 39, 'GARGOUR'),
+(353, 39, 'HAJEB'),
+(354, 11, 'HAZEG'),
+(355, 13, 'KHALIJ'),
+(356, 11, 'KHAZZANET'),
+(357, 13, 'MERKEZ BOUASSIDA'),
+(358, 13, 'MERKEZ CHIHIA'),
+(359, 13, 'MERKEZ DEROUICHE'),
+(360, 13, 'MERKEZ EL ALIA'),
+(361, 13, 'MERKEZ KAMMOUN'),
+(362, 13, 'MERKEZ KASSAS'),
+(363, 13, 'MERKEZ OUALI'),
+(364, 13, 'MERKEZ SAHNOUN'),
+(365, 13, 'MERKEZ SEBAI'),
+(366, 13, 'MERZEZ LAJMI'),
+(367, 39, 'NAKTA CHAFFAR'),
+(368, 13, 'OUED CHAABOUNI'),
+(369, 13, 'OUED RAMEL'),
+(370, 13, 'OULED BOUSMIR'),
+(371, 43, 'RAMLA - KERKENNAH'),
+(372, 13, 'SIDI ABBES'),
+(373, 11, 'SIDI SALAH'),
+(374, 71, 'BEN OUN'),
+(375, 71, 'BIR EL HAFFEY'),
+(376, 71, 'CEBBALA'),
+(377, 71, 'EL FAIEDH'),
+(378, 71, 'JILMA'),
+(379, 71, 'LASSOUEDA'),
+(380, 71, 'MEKNASSY'),
+(381, 71, 'MENZEL BOUZAIENE'),
+(382, 71, 'MEZZOUNA'),
+(383, 71, 'OULED HAFFOUZ'),
+(384, 71, 'REGUEB'),
+(385, 71, 'SAIDA'),
+(386, 71, 'SOUK JEDID'),
+(387, 61, 'BARGOU'),
+(388, 61, 'BOU ROUIS'),
+(389, 61, 'BOUARADA'),
+(390, 61, 'EL AROUSSA'),
+(391, 61, 'GAAFOUR'),
+(392, 61, 'KESRA'),
+(393, 61, 'LE KRIB'),
+(394, 61, 'MAKTHAR'),
+(395, 61, 'ROHIA'),
+(396, 45, 'BENI KALTHOUM'),
+(397, 44, 'BOUFICHA'),
+(398, 45, 'EL BORJINE'),
+(399, 44, 'HERGLA'),
+(400, 53, 'KALAA SEGHIRA'),
+(401, 9, 'SOUSSE-KANTAOUI'),
+(402, 45, 'KENAIS'),
+(403, 62, 'KONDAR'),
+(404, 45, 'KROUSSIA'),
+(405, 9, 'KSIBET SOUSSE'),
+(406, 45, 'MESSADINE'),
+(407, 53, 'SIDI ELHANI'),
+(408, 9, 'SOUSSE IBN KHALDOUN'),
+(409, 24, 'SMAR'),
+(410, 24, 'BIR LAHMAR'),
+(411, 24, 'GHOMRASSEN'),
+(412, 24, 'REMADA'),
+(413, 18, 'DEGACHE'),
+(414, 18, 'EL HAMMA DU JERID'),
+(415, 18, 'HEZOUA'),
+(416, 18, 'NEFTA'),
+(417, 18, 'TAMEGHZA'),
+(418, 56, 'HAMMAM ZRIBA'),
+(419, 56, 'JEBEL OUAST'),
+(420, 56, 'NADHOUR'),
+(421, 56, 'SAOUAF'),
+(422, 3, 'M\'HAMDIA'),
+(423, 9, 'SOUSSE SIDI ABDELHAMID'),
+(425, 1, 'ARIANA MEDINA'),
+(426, 4, 'KSAR SAID'),
+(427, 30, 'GAFSA'),
+(429, 9, 'SOUSSE'),
+(430, 4, 'Ras Tabia'),
+(431, 13, 'SFAX'),
+(432, 72, 'GALAA'),
+(433, 10, 'GABES VILLE'),
+(434, 14, 'KAIRAOUAN VILLE'),
+(435, 5, 'TUNIS EL OMRANE'),
+(436, 4, 'CITE EZZOUHOUR'),
+(437, 5, 'TUNIS RP (VILLE)'),
+(438, 52, 'RAS JEBEL'),
+(440, 23, 'MAHDIA'),
+(443, 27, 'BEN AROUS EST'),
+(444, 4, 'CITE INTILAKA'),
+(447, 4, 'BARDO'),
+(450, 34, 'BEJA VILLE'),
+(451, 11, 'EL HANCHA'),
+(453, 64, 'PARC TECHNOLOGIQUE'),
+(455, 52, 'AOUSJA'),
+(459, 47, 'HAMMAM-LIF'),
+(461, 4, 'Mellassine'),
+(462, 79, 'HOUMET ESSOUK'),
+(463, 16, 'CITE SIDI AMOR'),
+(464, 3, 'EL YASMINETTE'),
+(465, 29, 'SOMAA');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `departement`
+--
+
+CREATE TABLE `departement` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(300) DEFAULT NULL,
+  `abr` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `departement`
+--
+
+INSERT INTO `departement` (`id`, `nom`, `abr`) VALUES
+(1, 'Budget Marketing', 'M'),
+(2, 'Frais Généraux ', 'G'),
+(3, 'Budget de Vente', 'V'),
+(4, 'Direction', 'D'),
+(5, 'RH', 'R'),
+(6, 'AUTO', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etablissement`
+--
+
+CREATE TABLE `etablissement` (
+  `id` int(11) NOT NULL,
+  `gouv_id` int(11) DEFAULT NULL,
+  `del_id` int(11) DEFAULT NULL,
+  `nom` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `etablissement`
+--
+
+INSERT INTO `etablissement` (`id`, `gouv_id`, `del_id`, `nom`) VALUES
+(1, 1, 1, 'CHU ABDERRAHMANE MAMI'),
+(2, 2, 2, 'INSTITUT KASSAB'),
+(3, 3, 3, 'CENTRE DE TRAUMATOLOGIE ET DES GRANDS BRULES'),
+(4, 4, 4, 'HOPITAL LA RABTA'),
+(5, 5, 5, 'HOPITAL CHARLES NICOLLE'),
+(6, 5, 5, 'INSTITUT DE NEUROLOGIE'),
+(7, 5, 5, 'HOPITAL D ENFANT'),
+(8, 5, 5, 'INSTITUT SALAH AZAIEZ'),
+(9, 4, 6, 'CAMU ABOU KACEM CHABBI'),
+(10, 4, 6, 'HOPITAL HABIB THAMEUR'),
+(11, 4, 6, 'HOPITAL MILITAIRE'),
+(12, 6, 7, 'HOPITAL MONGI SLIM'),
+(13, 7, 8, 'HOPITAL FATOUMA BOURGUIBA'),
+(14, 8, 9, 'HOPITAL FARHAT HACHED'),
+(15, 9, 10, 'HOPITAL SAHLOUL'),
+(16, 10, 11, 'HOPITAL REGIONAL DE GABES'),
+(17, 11, 12, 'HOPITAL REGIONAL JEBENIANA'),
+(18, 12, 13, 'HOPITAL REGIONAL MEDENINE'),
+(19, 13, 14, 'CHU HABIB BOURGUIBA'),
+(20, 13, 14, 'CHU HEDI CHAKER'),
+(21, 14, 15, 'HOPITAL IBN JAZZAR'),
+(22, 15, 16, 'HOPITAL MENZEL BOURGUIBA'),
+(23, 16, 17, 'HOPITAL DE SILLONVILLE'),
+(24, 17, 18, 'HOPITAL REGIONAL SILIANA'),
+(25, 6, 7, 'HOPITAL FSI LA MARSA'),
+(26, 18, 19, 'HOPITAL TOZEUR'),
+(27, 19, 20, 'HOPITAL REGIONAL DU KEF'),
+(28, 20, 21, 'HOPITAL REGIONAL BIZERTE HBIB BOUGATFA'),
+(29, 21, 22, 'HOPITAL REGIONAL DJERBA'),
+(30, 22, 23, 'HOPITAL REGIONAL ZAGHOUAN'),
+(31, 5, 5, 'CENTRE DE MATERNITE WASSILA BOURGUIBA'),
+(32, 23, 24, 'HOPITAL TAHER SFAR MAHDIA'),
+(33, 10, 11, 'HOPITAL MILITAIRE DE GABES'),
+(34, 24, 25, 'HOPITAL REGIONAL TATAOUINE'),
+(35, 25, 26, 'HOPITAL SIDI BOUZID'),
+(36, 26, 27, 'HOPITAL JENDOUBA'),
+(37, 1, 1, 'HOPITAL MAHMOUD EL MATERI'),
+(38, 27, 28, 'HOPITAL BEN AROUS YASMINET'),
+(39, 59, 29, 'HOPITAL DE CIRCONSCRIPTION  DOUAR HICHER'),
+(40, 29, 30, 'HOPITAL GROMBALIA'),
+(41, 6, 31, 'HOPITAL KHEIREDDINE'),
+(42, 30, 32, 'HOPITAL GAFSA'),
+(43, 13, 14, 'CENTRE INTERMIDIERE ROUTE AEROPORT'),
+(44, 13, 14, 'DISPENSAIRE CNSS'),
+(45, 31, 33, 'HOPITAL REGIONAL DE KEBELLI'),
+(46, 32, 34, 'HOPITAL KSAR HELAL'),
+(47, 16, 17, 'HOPITAL REGIONAL DE NABEUL'),
+(48, 33, 35, 'HOPITAL KASSERINE'),
+(49, 34, 36, 'HOPITAL REGIONAL DE BEJA'),
+(50, 35, 37, 'HOPITAL DE TABARKA'),
+(51, 21, 38, 'HOPITAL BEN GUERDENE'),
+(52, 36, 39, 'POLYCLINIQUE CNSS EL KHADHRA'),
+(53, 37, 40, 'HOPITAL REGIONAL DE MEDJEZ EL BAB'),
+(54, 36, 41, 'CLINIQUE EL AMEN MUTUEL VILLE'),
+(55, 9, 42, 'CLINIQUE LES OLIVIERS'),
+(56, 6, 43, 'POLYCLINIQUE BERGE DU LAC'),
+(57, 38, 44, 'HOPITAL DE MENZEL TEMIME'),
+(58, 14, 45, 'HOPITAL AGHALBA'),
+(59, 39, 46, 'HOPITAL REGIONAL MAHRES'),
+(60, 40, 47, 'HOPITAL EL JEM'),
+(61, 41, 48, 'HOPITAL MOKNINE'),
+(62, 42, 49, 'HOPITAL DE METLAOUI'),
+(63, 43, 50, 'HOPITAL REGIONAL DE KERKENAH'),
+(64, 21, 51, 'HOPITAL REGIONAL ZARZIS'),
+(65, 36, 39, 'CENTRE DE MEDECINE SCOLAIRE ET UNIVERSITAIRE 16 AV'),
+(66, 20, 21, 'DISPENSAIRE HASSAN ENNOURI'),
+(67, 5, 5, 'INSTITUT DE NUTRITION'),
+(68, 4, 52, 'DISPENSAIRE ALI TRAD CITE EZZOUHOUR'),
+(69, 44, 53, 'HOPITAL ENFIDHA'),
+(70, 45, 54, 'HOPITAL MSAKEN'),
+(71, 8, 9, 'CENTRE INTERMEDIAIRE'),
+(72, 4, 55, 'DISPENSAIRE FSI BOUCHOUCHA'),
+(73, 9, 42, 'POLYCLINIQUES CNSS SOUSSE'),
+(74, 20, 21, 'CENTRE CRAN BIZERTE'),
+(76, 20, 21, 'CENTRE DE MATERNITE ET NEONAT BIZERTE'),
+(77, 5, 56, 'HOPITAL AZIZA OTHMANA'),
+(78, 14, 15, 'CENTRE DE MATERNITE IBN JAZZAR'),
+(79, 8, 9, 'CENTRE DE MATERNITE FARHAT HACHED'),
+(80, 5, 5, 'CENTRE DE GREFFE DE MOELLE OSSEUSE'),
+(81, 64, 57, 'DISPENSAIRE RAOUED'),
+(82, 63, 58, 'DISPENSAIRE SIDI SOFIENE'),
+(83, 1, 1, 'CSB DE L ARIANA'),
+(84, 65, 59, 'DISPENSAIRE KALAAT EL ANDALOUS'),
+(85, 66, 60, 'DISPENSAIRE ETTADHAMEN'),
+(86, 46, 61, 'DISPENSAIRE MEGRINE COTEAUX'),
+(87, 46, 62, 'CSB RADES FORET'),
+(88, 47, 63, 'DISPENSAIRE BOUKORNINE'),
+(89, 4, 64, 'DISPENSAIRE CITE ETTAHRIR'),
+(90, 3, 65, 'CSB FOUCHANA'),
+(91, 3, 3, 'DISPENSAIRE NAASSEN'),
+(92, 3, 66, 'DISPENSAIRE MHAMEDIA'),
+(93, 48, 67, 'CSB MORNAG'),
+(94, 49, 68, 'DISPENSAIRE BIR BOURAGBA'),
+(95, 38, 69, 'DISPENSAIRE BENI KHIAR'),
+(96, 38, 70, 'DISPENSAIRE MAAMOURA'),
+(97, 17, 18, 'CSB SILIANA'),
+(98, 50, 71, 'DISPENSAIRE MORNAGUIA'),
+(99, 36, 39, 'CENTRE MEDICAL DE LA DOUANE'),
+(100, 36, 39, 'DISPENSAIRE FSI AVENUE DE LA LIBERTE'),
+(101, 36, 39, 'DISPENSAIRE CITE KHADHRA'),
+(102, 4, 72, 'DISPENSAIRE 20 MARS SEJOUMI'),
+(103, 6, 127, 'DISPENSAIRE LE KRAM OUEST'),
+(104, 6, 73, 'DISPENSAIRE AL ABDELLIA'),
+(105, 51, 74, 'CENTRE MEDICO SOCIAL DES COMMUNICATIONS'),
+(106, 4, 75, 'DISPENSAIRE CITE IBN KHALDOUN'),
+(107, 47, 63, 'CENTRE INTERMIDIAIRE HAMMAM LIF'),
+(108, 66, 76, 'DISPENSAIRE EL BASSATINE'),
+(109, 52, 77, 'HOPITAL REGIONAL EL ALIA'),
+(110, 52, 77, 'DISPENSAIRE EL ALIA'),
+(111, 20, 21, 'DISPENSAIRE ZARZOUNA'),
+(112, 52, 78, 'DISPENSAIRE RAS JEBEL'),
+(113, 20, 180, 'DISPENSAIRE MENZEL ABDERRAHMEN'),
+(114, 15, 16, 'DISPENSAIRE MENZEL BOURGUIBA'),
+(115, 9, 79, 'DISPENSAIRE HAMMAM SOUSSE'),
+(116, 41, 80, 'DISPENSAIRE JAMMEL 1'),
+(117, 53, 81, 'DISPENSAIRE CENTRE VILLE KALAA KEBIRA'),
+(118, 23, 82, 'DISPENSAIRE HIBOUNE'),
+(119, 23, 24, 'DISPENSAIRE EZZOUHOUR MAHDIA'),
+(120, 7, 8, 'DISPENSAIRE BASSATINE'),
+(121, 7, 8, 'DISPENSAIRE C2'),
+(122, 54, 83, 'HOPITAL SAHLINE'),
+(123, 7, 8, 'DISPENSAIRE AIR 4'),
+(124, 9, 10, 'DISPENSAIRE HEDI CHAKER SOUSSE'),
+(125, 8, 9, 'SNCFT'),
+(126, 9, 85, 'DISPENSAIRE LAOUINA SOUSSE'),
+(127, 8, 84, 'DISPENSAIRE FSI SOUSSE'),
+(128, 53, 407, 'DISPENSAIRE GHODRANE'),
+(129, 9, 86, 'DISPENSAIRE EZZOUHOUR SOUSSE'),
+(130, 53, 81, 'DISPENSAIRE MEDINA'),
+(131, 13, 130, 'DISPENSAIRE FSI SAKIET EDDAIER'),
+(132, 39, 88, 'DISPENSAIRE AGAREB'),
+(133, 13, 89, 'DISPENSAIRE CHAHIA'),
+(134, 13, 14, 'DISPENSAIRE EL AIN'),
+(135, 13, 90, 'CENTRE INTERMIDIERE SAKIETTE EZZITE'),
+(136, 13, 91, 'DISPENSAIRE CITE HABIB'),
+(137, 11, 92, 'DISPENSAIRE EL HENCHA'),
+(138, 13, 14, 'DISPENSAIRE CHOUHADA'),
+(139, 13, 94, 'DISPENSAIRE MOHAMED ALI ROUTE KAYED MOHAMED'),
+(140, 13, 14, 'CENTRE DE REEDUCATION ISSEPS'),
+(141, 21, 22, 'CSB DJERBA'),
+(142, 10, 11, 'CENTRE DE SANTE DE BASE MOHAMED ALI'),
+(143, 27, 28, 'DISPENSAIRE YASMINET'),
+(144, 54, 83, 'DISPENSAIRE SAHLINE'),
+(145, 8, 84, 'DISPENSAIRE MOHAMED ALI SOUSSE'),
+(146, 66, 76, 'DISPENSAIRE MNIHLA'),
+(147, 29, 95, 'DISPENSAIRE BOU ARGOUB'),
+(148, 55, 96, 'HOPITAL EL HAMMA'),
+(149, 14, 15, 'DISPENSAIRE IBN FOURAT'),
+(150, 4, 52, 'PMI EZZOUHOUR'),
+(151, 53, 81, 'HOPITAL KALAA KEBIRA'),
+(152, 48, 97, 'CSB BOUMHEIL'),
+(153, 16, 17, 'DISPENSAIRE CENTRE VILLE NABEUL'),
+(154, 38, 44, 'DISPENSAIRE MENZEL TEMIME'),
+(155, 4, 98, 'DISPENSAIRE EZZAHROUNI'),
+(156, 38, 99, 'HOPITAL KORBA'),
+(157, 56, 100, 'HOPITAL FAHS'),
+(158, 5, 101, 'DISPENSAIRE 25JUILLET'),
+(159, 6, 252, 'DISPENSAIRE CITE TAIEB MHIRI'),
+(160, 57, 102, 'HOPITAL BOUHAJLA'),
+(161, 54, 83, 'DISPENSAIRE MOOTAMAR'),
+(162, 29, 103, 'HOPITAL BENI KHALLED'),
+(163, 35, 104, 'HOPITAL DE FERNANA'),
+(164, 13, 14, 'CENTRE DE PLANNING FAMILIAL'),
+(165, 5, 56, 'DISPENSAIRE EL HAFSIA'),
+(166, 4, 105, 'DISPENSAIRE SIDI HASSINE'),
+(167, 20, 21, 'DISPENSAIRE DE MENZEL JEMIL'),
+(168, 13, 14, 'DISPENSAIRE TYNA'),
+(169, 16, 17, 'FSI NABEUL'),
+(170, 39, 107, 'DISPENSAIRE BIR ALI BEN KHALIFA'),
+(171, 37, 108, 'DISPENSAIRE NEFZA'),
+(172, 35, 149, 'HOPITAL AIN DRAHAM'),
+(173, 58, 109, 'DISPENSAIRE DENDEN'),
+(174, 55, 110, 'HOPITAL REGIONAL MARETH'),
+(175, 65, 111, 'DISPENSAIRE SIDI THABET'),
+(176, 13, 112, 'DISPENSAIRE SIDI MANSOUR'),
+(177, 35, 113, 'HOPITAL BOUSSELEM'),
+(178, 40, 114, 'HOPITAL SOUASSI'),
+(179, 62, 403, 'DISPENSAIRE BASSATINE KALAA KEBIRA'),
+(180, 59, 115, 'HOPITAL DE CIRCONSCRIPTION DE TEBOURBA'),
+(181, 36, 39, 'DISPENSAIRE ASDRUBAL'),
+(182, 14, 15, 'DISPENSAIRE HAJJEM'),
+(183, 4, 105, 'DISPENSAIRE AL WASSIT'),
+(184, 8, 9, 'DISPENSAIRE JAWHRA'),
+(185, 30, 32, 'DISPENSAIRE CITE ENNOUR'),
+(186, 14, 15, 'DISPENSAIRE KAROUI'),
+(187, 40, 116, 'HOPITAL CHORBANE'),
+(188, 22, 23, 'DISPENSAIRE ZAGHOUAN'),
+(189, 19, 20, 'PMI LE KEF'),
+(190, 4, 52, 'DISPENSAIRE EZZOUHOUR'),
+(191, 46, 117, 'DISPENSAIRE EZZAHRA'),
+(192, 7, 8, 'DISPENSAIRE AIR 6'),
+(193, 20, 21, 'HOPITAL MILITAIRE BIZERTE'),
+(194, 29, 30, 'CENTRE HEMODIALYSE GROMBALIA'),
+(195, 2, 2, 'HOPITAL RAZI'),
+(196, 2, 2, 'CENTRE HEMODIALYSE RADIAL'),
+(197, 2, 2, 'DISPENSAIRE MANNOUBA'),
+(198, 49, 118, 'HOPITAL HAMMAMET'),
+(199, 29, 119, 'HOPITAL DE MENZEL BOUZELFA'),
+(200, 4, 55, 'DIRECTION DE LA SANTEE MILITAIRTE'),
+(201, 7, 8, 'GROUPEMENT SANTE DE BASE DE  MONASTIR'),
+(202, 41, 80, 'HOPITAL JAMMEL'),
+(203, 42, 49, 'POLYCLINIQUE CNSS METLAOUI'),
+(204, 38, 120, 'HOPITAL EL HAOUARIA'),
+(205, 29, 121, 'HOPITAL SOLIMEN'),
+(206, 16, 17, 'GROUPEMENT DE SANTE DE BASE DE NABEUL'),
+(207, 5, 101, 'GROUPEMENT SPORTIF SOCIALE  MILITAIRE SAADALAH'),
+(208, 38, 70, 'HOPITAL DE KELIBIA'),
+(209, 40, 122, 'HOPITAL BOUMERDES'),
+(211, 2, 2, 'PMI MANNOUBA'),
+(212, 20, 21, 'CENTRE POLYVALENT HASSEN  NOURI'),
+(213, 20, 21, 'PMI DE BIZERTE'),
+(214, 20, 21, 'PLOLYCLINIQUE CNSS BIZERTE'),
+(215, 4, 52, 'CSB CITE EZZOUHOUR 1'),
+(216, 46, 117, 'CSB EZZAHRA'),
+(217, 46, 62, 'CSSB RADES'),
+(218, 60, 124, 'HOPITAL DAHMANI'),
+(219, 15, 125, 'HOPITAL MATEUR'),
+(220, 52, 78, 'HOPITAL RAS JEBAL'),
+(221, 19, 20, 'PMI SERS'),
+(222, 6, 127, 'PMI DU KRAM OUEST'),
+(223, 6, 73, 'PMI LA MARSA'),
+(224, 4, 105, 'PMI MELLASSINE'),
+(225, 4, 128, 'DISPENSAIRE KSAR SAID'),
+(226, 50, 71, 'PMI MORNAGUIA'),
+(228, 39, 107, 'HOPITAL BIR ALI BEN KHLIFA'),
+(229, 39, 88, 'HOPITAL AGAREB'),
+(230, 39, 129, 'HOPITAL LOCAL SKHIRA'),
+(231, 13, 130, 'HOPITAL MANZEL CHAKER'),
+(232, 13, 130, 'CSSB MANZEL CHAKER'),
+(233, 11, 12, 'PMI JBENIANA'),
+(234, 39, 131, 'HOPITAL SKHIRA'),
+(235, 39, 132, 'CSB GHRAIBA'),
+(236, 11, 92, 'HOPITAL  EL HENCHA'),
+(237, 11, 92, 'PMI DE HENCHA'),
+(238, 13, 14, 'CENTRE EL WASSIT'),
+(239, 13, 14, 'POLYCLINIQUE CNSS SFAX'),
+(241, 13, 133, 'CSSB SIDI MANSOUR'),
+(242, 13, 14, 'CSSB THYNA'),
+(243, 13, 134, 'CSSB  ROUTE GREMDA'),
+(245, 13, 135, 'CSSB SALTNIA'),
+(246, 13, 14, 'CSSB BOUASIDA'),
+(247, 13, 14, 'CSSB HORRIA'),
+(248, 13, 14, 'CSSB MOHAMMED ALI'),
+(249, 40, 137, 'PMI CHEBBA'),
+(250, 40, 137, 'HOPITAL CHEBBA'),
+(251, 40, 47, 'PMI EL JEM'),
+(252, 64, 57, 'CSSB RAOUAD'),
+(253, 67, 254, 'CLINIQUE ESPOIR'),
+(254, 16, 17, 'CLINIQUE IBN ROCHD'),
+(255, 3, 3, 'CSSB MOUROUJ 1'),
+(256, 36, 123, 'CLINIQUE ETTAWFIK'),
+(257, 59, 140, 'CSSB JEDAIDA NOUVELLE'),
+(258, 67, 141, 'CLINIQUE EL FARABI'),
+(259, 59, 142, 'CSSB OUED ELLIL'),
+(260, 50, 143, 'CSSB BORJ EL AMRI'),
+(261, 50, 144, 'CSSB EL BATTAN'),
+(262, 36, 145, 'CLINIQUE MONTPLAISIR'),
+(263, 4, 55, 'DISPENSAIRE FATTOUMA BOURGUIBA BARDO'),
+(264, 59, 29, 'CENTRE DE LA SANTE  DE LA REPRODUCTION'),
+(265, 27, 28, 'CSSB SIDI MOSBAH'),
+(266, 66, 60, 'HOPITAL ETTADHAMEN'),
+(267, 4, 55, 'CSB BARDO'),
+(268, 1, 1, 'PMI ARIANA'),
+(269, 29, 121, 'PMI SOLIMAN'),
+(270, 16, 146, 'HOPITAL DE DAR CHAABANE'),
+(271, 27, 28, 'CSSB BEN AROUS'),
+(272, 16, 17, 'CSSB SIDI ACHOUR'),
+(273, 16, 17, 'CLINIQUE LES VIOLETTES'),
+(274, 22, 23, 'PMI ZAGHOUAN'),
+(275, 3, 66, 'CSSB MHAMADIA'),
+(276, 3, 147, 'CSSB NOUVELLE MEDINA'),
+(277, 4, 55, 'POLYCLINIQUE CNSS ELOMRANE'),
+(278, 3, 65, 'HOPITAL FOUCHANA'),
+(279, 4, 55, 'CBS RAS TABIA'),
+(281, 4, 55, 'PMI POLICE'),
+(282, 50, 144, 'CSSB EL MANSOURA'),
+(283, 2, 2, 'CSSB KSAR SAID'),
+(284, 59, 29, 'DISPENSAIRE DOUAR HICHER'),
+(285, 29, 30, 'PMI DE GROMBALIA'),
+(286, 36, 41, 'CLINIQUE EL MENZAH'),
+(287, 2, 2, 'CENTRE MEDICAL MANOUBA'),
+(288, 59, 115, 'PMI DE TEBOURBA'),
+(289, 51, 74, 'CLINIQUE LA LIBERTE'),
+(290, 29, 30, 'CSSB GROMBALIA'),
+(291, 51, 74, 'CLINIQUE LES JARDINS'),
+(292, 16, 463, 'CSSB SIDI AMOR'),
+(293, 56, 148, 'PMI BIR MCHERGUA'),
+(294, 2, 2, 'INPE MANNOUBA'),
+(295, 50, 143, 'PMI CITE EL INTILAKA'),
+(296, 49, 118, 'CSSB HAMMAMET'),
+(297, 3, 66, 'PMI MOHAMADIA'),
+(298, 67, 141, 'CENTRE MEDICAL FARABI'),
+(299, 38, 44, 'PMI DE MENZEL TEMIME'),
+(300, 49, 118, 'CLINIQUE HAMMAMET'),
+(301, 67, 138, 'CLINIQUE ENNASR'),
+(302, 59, 140, 'CSSB JEDAIDA ANCIENNE'),
+(303, 59, 142, 'CSSB EL BOSTENE'),
+(304, 3, 65, 'PMI DE FOUCHANA'),
+(305, 27, 28, 'PMI SIDI MOSBAH'),
+(306, 59, 142, 'CSSB EL KOOBA'),
+(307, 27, 28, 'PMI BEN AROUS'),
+(308, 16, 463, 'PMI SIDI AMOR'),
+(309, 36, 123, 'CLINIQUE AVICENNE'),
+(310, 38, 69, 'CSSB BENI KHIAR'),
+(311, 63, 58, 'CSSB LA SOUKRA'),
+(313, 14, 15, 'PMI KAIROUAN'),
+(314, 7, 8, 'CENTRE MATERNITE FATTOUMA BOURGUIBA'),
+(315, 23, 24, 'PMI MAHDIA'),
+(316, 7, 8, 'CSB STAH JABEUR'),
+(317, 41, 151, 'PMI OUERDANINE'),
+(318, 9, 152, 'PMI ERRIADH'),
+(319, 7, 8, 'PMI MONASTIR'),
+(320, 8, 9, 'PMI FARHAT HACHED SOUSSE'),
+(321, 9, 79, 'PMI HAMMAM SOUSSE'),
+(322, 44, 53, 'PMI DE ENFIDHA'),
+(323, 32, 153, 'HOPITAL BEMBLA'),
+(324, 57, 154, 'HOPITAL CHEBIKA'),
+(325, 7, 8, 'CLINIQUE DABBABI'),
+(326, 7, 8, 'CLINIQUE SOUANI'),
+(327, 32, 155, 'PMI TEBOULBA'),
+(328, 62, 156, 'HOPITAL SIDI BOUALI'),
+(329, 9, 85, 'CSB EL GHOUDRANE'),
+(330, 62, 156, 'PMISIDI BOUALI'),
+(331, 9, 157, 'CSB CHATT MARIAM'),
+(332, 62, 158, 'PMI AKOUDA'),
+(333, 9, 159, 'PMI ZAOUIT SOUSSE'),
+(334, 54, 83, 'PMI SAHLINE'),
+(335, 41, 80, 'PMI JAMMEL'),
+(336, 41, 160, 'HOPITAL ZARMDINE'),
+(337, 40, 114, 'PMI SOUASSI'),
+(338, 55, 96, 'PMI EL HAMMA'),
+(339, 31, 33, 'CLINIQUE NEFZEOUA'),
+(340, 21, 22, 'PMI HOUMET ESSOUK'),
+(341, 21, 161, 'HOPITAL EL MAY'),
+(342, 57, 216, 'HOPITAL CHERARDA'),
+(343, 57, 219, 'HOPITAL HAJEB LAYOUN'),
+(344, 14, 15, 'CLINIQUE HAMDA LAOUANI'),
+(345, 68, 227, 'CSB FOUSSANA'),
+(346, 33, 35, 'CLINIQUE CHIFA KASSERINE'),
+(347, 33, 35, 'CSB KASSERINE'),
+(348, 68, 235, 'HOPITAL SBIBA'),
+(349, 68, 236, 'HOPITAL THALA'),
+(351, 36, 41, 'CLINIQUE SAINT AUGUSTIN'),
+(352, 63, 58, 'CLINIQUE LA SOUKRA'),
+(353, 40, 277, 'HOPITAL MELLOULECH'),
+(354, 40, 278, 'DISPENSAIRE OULED CHAMEKH'),
+(355, 40, 279, 'CSB REJICHE'),
+(356, 40, 280, 'HOPITAL SIDI ALOUANE'),
+(357, 21, 38, 'PMI BEN GUERDEN'),
+(358, 70, 282, 'HOPITAL BENI KHEDACHE'),
+(359, 21, 22, 'CLINIQUE EL YASMINE'),
+(360, 21, 22, 'CLINIQUE DJERBA LA DOUCE'),
+(361, 21, 289, 'HOPITAL MIDOUN'),
+(362, 32, 300, 'HOPITAL BEKALTA'),
+(363, 41, 301, 'HOPITAL BENNANE'),
+(364, 41, 302, 'HOPITAL BNIHASSEN'),
+(365, 32, 303, 'DISPENSAIRE BOUHJAR'),
+(366, 32, 307, 'DISPENSAIRE KSIBET MADIOUNI'),
+(367, 32, 308, 'DISPENSAIRE LAMTA'),
+(368, 41, 311, 'HOPITAL MENZEL NOUR'),
+(369, 41, 314, 'HOPITAL MENZEL KAMEL'),
+(370, 32, 315, 'DISPENSAIRE SAYADA'),
+(371, 39, 107, 'BIR ALI BEN KHLIFA'),
+(372, 11, 343, 'BOU JARBOU'),
+(373, 13, 136, 'CAID M\'HAMED'),
+(374, 13, 344, 'CITE BOURGUIBA'),
+(375, 13, 345, 'CITE EL BAHRI'),
+(376, 13, 91, 'CITE EL HABIB'),
+(377, 13, 130, 'MENZEL HEDI CHAKER'),
+(378, 13, 357, 'MERKEZ BOUASSIDA'),
+(379, 13, 358, 'MERKEZ CHIHIA'),
+(380, 13, 359, 'MERKEZ DEROUICHE'),
+(381, 13, 360, 'MERKEZ EL ALIA'),
+(382, 13, 361, 'MERKEZ KAMMOUN'),
+(383, 13, 362, 'MERKEZ KASSAS'),
+(384, 13, 363, 'MERKEZ OUALI'),
+(385, 13, 364, 'MERKEZ SAHNOUN'),
+(386, 13, 365, 'MERKEZ SEBAI'),
+(387, 13, 366, 'MERZEZ LAJMI'),
+(388, 39, 367, 'NAKTA CHAFFAR'),
+(389, 71, 374, 'HOPITAL BEN OUN'),
+(390, 71, 375, 'HOPITAL BIR EL HAFFEY'),
+(391, 71, 382, 'HOPITAL MEZZOUNA'),
+(392, 71, 383, 'HOPITAL DE OULED HAFFOUZ'),
+(393, 71, 384, 'HOPITAL REGUEB'),
+(394, 71, 384, 'PMI REGUEB'),
+(395, 61, 388, 'HOPITAL BOUROUIS'),
+(396, 61, 389, 'HOPITAL BOUARADA'),
+(397, 61, 391, 'HOPITAL GAAFOUR'),
+(398, 61, 392, 'HOPITAL KESRA'),
+(399, 61, 394, 'HOPITAL MAKTHAR'),
+(400, 62, 158, 'HOPITAL AKOUDA'),
+(401, 44, 397, 'HOPITAL BOUFICHA'),
+(402, 44, 399, 'CSB HERGLA'),
+(403, 53, 400, 'HOPITAL KALAA SEGHIRA'),
+(404, 9, 405, 'CSB KSIBET SOUSSE'),
+(405, 45, 406, 'CSB MESSADINE'),
+(406, 53, 407, 'CSB SIDI EL HANI'),
+(407, 8, 84, 'CLINIQUE LA CORNICHE'),
+(408, 24, 411, 'HOPITAL GHOMRASSEN'),
+(409, 24, 25, 'CLINIQUE LAZHAR'),
+(410, 18, 413, 'HOPITAL DGUECH'),
+(411, 18, 416, 'HOPITAL NEFTA'),
+(412, 56, 148, 'HOPITAL BIR MCHERGUA'),
+(413, 56, 418, 'HOPITAL ZRIBA'),
+(414, 56, 419, 'HOPITAL JEBAL OUAST'),
+(415, 13, 14, 'AVENIR PHARMA GROS SARL'),
+(416, 8, 9, 'AVICENNE SARL'),
+(417, 63, 266, 'B & A - PHARMA'),
+(418, 13, 14, 'C0 DI PHAR'),
+(419, 16, 17, 'CAB DE PHAR SARL'),
+(420, 20, 176, 'CENTRA NORD'),
+(421, 63, 266, 'CO GE PHA S.A CHARGUIA'),
+(422, 69, 265, 'CO GE PHA S.A BAB SAADOUN'),
+(423, 38, 99, 'CO GE PHA S.A KORBA'),
+(424, 26, 27, 'CO GE PHA S.A JENDOUBA'),
+(425, 12, 13, 'CO GE PHA S.A MEDENINE'),
+(426, 46, 61, 'CO GE PHA S.A BEN AROUS'),
+(427, 23, 24, 'CO.PHAR.MA SARL MAHDIA'),
+(428, 45, 54, 'CO.PRO.PHA SARL MSAKEN'),
+(429, 21, 22, 'CO.PRO.PHA SARL DJERBA'),
+(430, 45, 54, 'COMPTOIR MEDITERRANE'),
+(431, 9, 42, 'COPHA CENTRE SARL SOUSSE'),
+(432, 5, 101, 'COTUPHA S.A TUNIS'),
+(433, 2, 2, 'COTUPHA S.A MANNOUBA'),
+(434, 20, 21, 'D.M.K BISERTE'),
+(435, 32, 34, 'DE.PHA.C SARL'),
+(436, 34, 36, 'DE.PHA.NORD'),
+(437, 16, 17, 'DHAPHAR'),
+(438, 14, 45, 'DISTRI-MED SARL'),
+(439, 2, 2, 'EASY PHARMA SARL'),
+(440, 36, 123, 'EXPRESS PHARMA SUARL'),
+(441, 3, 422, 'FARMA PLUS'),
+(442, 16, 17, 'GALIEN'),
+(443, 27, 28, 'HORIZON PHARMA'),
+(444, 46, 117, 'INTERMED SARL EZZAHRA'),
+(445, 6, 252, 'INTERMED SARL LAOUINA'),
+(446, 36, 139, 'K.PROPHARMA'),
+(447, 10, 11, 'KI.PRO.PHA SARL GABES'),
+(448, 6, 73, 'KI.PRO.PHA SARL MARSA'),
+(449, 4, 55, 'MEDI GROS SARL'),
+(450, 8, 84, 'MEDICA CENTER S.A'),
+(451, 30, 32, 'MEDICA EXPRESS SARL'),
+(452, 15, 16, 'MEDICA NORD'),
+(453, 67, 254, 'MEDICA PHARM TUNIS'),
+(454, 47, 63, 'MEDICA SERVICE SARL'),
+(455, 14, 15, 'MEDICA.KA SARL'),
+(456, 26, 27, 'MEDICAM. JENDOUBA S.A'),
+(457, 14, 15, 'MEDICAMENT OKBA SARL'),
+(458, 38, 70, 'MEDIPHARM'),
+(459, 63, 266, 'MEGA-PHARM'),
+(460, 13, 14, 'OMNIPHARM REPARTITION'),
+(461, 40, 276, 'PHARMA SEF'),
+(462, 63, 266, 'PHARMA SERVICE S.A'),
+(463, 13, 14, 'PHARMA SUD'),
+(464, 4, 55, 'PHARMADIS'),
+(465, 2, 2, 'PHARMAGROS SARL'),
+(466, 36, 41, 'PHARMASPRINT SARL'),
+(467, 36, 123, 'PHARMATOUT SARL'),
+(468, 4, 267, 'PRESTAT- PHARM SARL'),
+(469, 21, 51, 'PRO.PHA.SUD SARL ZARZIS'),
+(470, 46, 61, 'PRO.PHA.SUD SARL MEGRINE'),
+(471, 14, 15, 'PRO.PHAR.MA CENTRE'),
+(472, 7, 8, 'RUSPINA PHARMA'),
+(473, 8, 84, 'SERPHARMA'),
+(474, 32, 34, 'SGHAIER PHARMA'),
+(475, 9, 423, 'SO.PRO.PHA S.A SOUSSE'),
+(476, 12, 13, 'SO.PRO.PHA S.A MEDNINE'),
+(477, 13, 14, 'SO.PRO.PHA S.A SFAX'),
+(478, 8, 84, 'SO.TU.PHA SARL'),
+(479, 30, 32, 'SOCIETE EL FARABI'),
+(480, 6, 73, 'SOCIETE PROXI-PHAR'),
+(481, 2, 2, 'SO. NY. PHA'),
+(482, 7, 8, 'TUNI.MED SARL'),
+(483, 5, 101, 'UNIPHAR S.A'),
+(484, 13, 14, 'UNIVERS PHARMA'),
+(485, 13, 14, 'PROPHADIS'),
+(486, 13, 14, 'BEST PARA'),
+(487, 13, 14, 'PARAPHARMA HAKMOUNI'),
+(488, 13, 14, 'CHOUAIAKH PARAPHARMA'),
+(489, 13, 14, 'NEW BABY'),
+(490, 13, 14, 'EXCELLENT HEALTH'),
+(491, 13, 14, 'PHYLABO'),
+(492, 13, 14, 'MEGA PARA'),
+(493, 45, 54, 'SGR  MSAKEN'),
+(494, 16, 17, 'PURE PHARMA'),
+(495, 51, 74, 'COGEPA'),
+(496, 1, 1, 'SALMA PARA'),
+(497, 63, 266, 'LOISIR ET SANTE'),
+(498, 27, 28, 'PHARMASUD'),
+(499, 5, 101, 'PROCHIFA'),
+(500, 63, 266, 'DEPROPHA'),
+(501, 4, 55, 'PHARMACHIMIQUE'),
+(502, 6, 73, 'D2P'),
+(503, 21, 286, 'PMI AJIM'),
+(504, 12, 13, 'PMI MEDENINE'),
+(506, 55, 198, 'HOPITAL OUEDHREF'),
+(507, 23, 24, 'EXCELL PHARMA'),
+(508, 23, 24, 'CLINIQUE ERRAHMA'),
+(509, 23, 24, 'CLINIQUE EXCELLENCE'),
+(510, 7, 297, 'DISPENSAIRE AMIRAT EL FHOUL'),
+(511, 7, 8, 'CLINIQUE DE CARTHAGE'),
+(512, 41, 48, 'CLINIQUE DU CENTRE MOKNINE'),
+(513, 32, 34, 'CLINIQUE DU SAHEL KSAR HELAL'),
+(514, 71, 375, 'CSB BIR EL HAFFEY'),
+(515, 71, 376, 'HOPITAL CEBBALA'),
+(516, 31, 239, 'HOPITAL DOUZ'),
+(517, 71, 380, 'HOPITAL MEKNASSY'),
+(518, 71, 380, 'PMI MEKNASSY'),
+(519, 30, 32, 'CLINIQUE AMEN GAFSA'),
+(520, 46, 61, 'CLINIQUE MEGRINE'),
+(521, 46, 61, 'DISPENSAIRE MEGRINE SHAKER'),
+(522, 47, 63, 'CLINIQUE HAMMAM LIF'),
+(523, 46, 117, 'CLINIQUE EL WALID'),
+(524, 8, 9, 'CLINIQUE EL YOUSR'),
+(525, 40, 276, 'PMI KSOUR ESSEF'),
+(526, 68, 230, 'HOPITAL SBEITLA'),
+(527, 68, 230, 'PMI SBEITLA'),
+(528, 6, 43, 'CLINIQUE ALLYSSA'),
+(529, 68, 226, 'HOPITAL FERIANA'),
+(530, 68, 234, 'HOPITAL MAJEL BEL ABBES'),
+(531, 25, 26, 'PMI SIDI BOUZID'),
+(532, 68, 234, 'CSB MAJEL BEL ABBES'),
+(533, 68, 226, 'CSB FERIANA'),
+(534, 33, 35, 'PMI KASSERINE'),
+(535, 68, 225, 'CSB BOUZGUEM'),
+(536, 71, 378, 'PMI JILMA'),
+(537, 71, 378, 'HOPITAL JILMA'),
+(538, 42, 203, 'HOPITAL EL GUETAR'),
+(539, 42, 206, 'HOPITALMDHILLA'),
+(540, 10, 11, 'CLINIQUE BON SECOURS'),
+(541, 36, 41, 'CLINIQUE CARTHAGENE'),
+(542, 15, 125, 'PMI MATEUR'),
+(543, 57, 102, 'PMI BOUHAJLA'),
+(544, 7, 306, 'DISPENSAIRE  KHENISS'),
+(545, 57, 223, 'HOPITAL SBIKHA'),
+(546, 57, 222, 'HOPITAL OUESLATIA'),
+(547, 57, 221, 'HOPITAL NASRALLAH'),
+(548, 30, 32, 'PMI SIDI BOUYAHYA'),
+(549, 57, 218, 'HOPITAL HAFFOUZ'),
+(550, 57, 217, 'HOPITAL EL ALAA'),
+(551, 42, 208, 'PMI REDAYEF'),
+(552, 42, 208, 'HOPITAL REDAYEF'),
+(553, 42, 207, 'HOPITAL MOULARES'),
+(554, 40, 275, 'DISPENSAIRE KERKER'),
+(555, 42, 209, 'HOPITAL SENED'),
+(556, 42, 209, 'PMI SENED'),
+(557, 8, 9, 'CLINIQUE ESSALEM'),
+(558, 45, 54, 'CSB MSAKEN'),
+(559, 53, 400, 'CSB KALAA SGHIRA'),
+(560, 62, 403, 'CSB KONDAR'),
+(561, 3, 3, 'CSB MOUROUJ 4'),
+(562, 11, 92, 'PMI HENCHA'),
+(563, 71, 381, 'HOPITAL MENZL BOUZAINE'),
+(564, 57, 222, 'PMI OUESLATIA'),
+(565, 11, 346, 'CSB  EL AMRA'),
+(566, 26, 27, 'CLINIQUE LES ANGES JENDOUBA'),
+(567, 35, 104, 'PMI FERNANA'),
+(568, 9, 423, 'DISPENSAIRE SIDI ABDELHAMID'),
+(569, 35, 213, 'HOPITAL GHARDIMAOU'),
+(570, 26, 27, 'PMI JENDOUBA'),
+(571, 71, 381, 'PMI MENZEL BOUZAINE'),
+(572, 60, 246, 'HOPITAL NEBEUR'),
+(573, 35, 113, 'PMI  BOUSALEM'),
+(574, 34, 36, 'CLINIQUE AMEN BEJA'),
+(575, 14, 45, 'GSB KAIROUAN'),
+(576, 61, 387, 'HOPITAL BARGOU'),
+(577, 6, 43, 'CLINIQUE HANNIBAL'),
+(578, 21, 51, 'CLINIQUE SALEM ZARZIS'),
+(579, 21, 51, 'CLINIQUE EL AMAL ZARZIS'),
+(580, 6, 73, 'CLINIQUE AMEN LAMARSA'),
+(581, 11, 12, 'HOPITAL JEBENIANA'),
+(582, 37, 170, 'HOPITAL TEBOURSOUK'),
+(583, 61, 393, 'HOPITAL LE KRIB'),
+(584, 30, 32, 'PMI GAFSA'),
+(585, 4, 55, 'CENTRE DE SANTE REPRODUCTIVE BARDO'),
+(587, 61, 126, 'HOPITAL SERS'),
+(588, 65, 59, 'DISPENSAIRE PONT DE BIZERTE'),
+(589, 31, 238, 'HOPITAL BOUABDALLAH'),
+(590, 55, 96, 'DISPENSAIRE EL HAMMA'),
+(591, 9, 79, 'CSB HAMMAM SOUSSE'),
+(592, 4, 72, 'DISPENSAIRE ALI TRAD'),
+(593, 59, 115, 'DISPENSAIRE TEBOURBA'),
+(594, 59, 29, 'PMI DOUAR HICHER'),
+(596, 56, 100, 'PMI FAHS'),
+(597, 56, 420, 'HOPITAL NADHOUR'),
+(598, 42, 203, 'PMI EL GUETAR'),
+(599, 21, 51, 'PMI ZARZIS'),
+(600, 4, 267, 'NOUVELLE CLINIQUE DU PARC'),
+(603, 20, 181, 'DISPENSAIRE LAAZIB'),
+(604, 52, 77, 'DISPENSAIRE SIDI ALI CHBEB'),
+(605, 52, 174, 'DISPENSAIRE AOUSJA'),
+(606, 15, 16, 'PMI MENZEL BOURGUIBA'),
+(607, 4, 55, 'PMI BARDO'),
+(608, 4, 55, 'DISPENSAIRE JBEL LAHMER'),
+(609, 32, 34, 'DISPENSAIRE RIADH 1'),
+(610, 32, 34, 'DISPENSAIRE HELAL'),
+(611, 20, 21, 'CLINIQUE RAOUEBI'),
+(612, 40, 276, 'HOPITAL  KSOUR ESSEF'),
+(613, 19, 20, 'CLINIQUE JUGURTHA'),
+(614, 21, 22, 'CLINIQUE ECHIFA'),
+(615, 4, 105, 'DISPENSAIRE 25 JUILLET'),
+(616, 64, 163, 'DISPENSAIRE BORJ TOUIL'),
+(617, 39, 46, 'HOPITAL  MAHRES'),
+(618, 40, 122, 'DISPENSAIRE BOUMERDES'),
+(619, 36, 41, 'CLINIQUE LES JASMINS'),
+(620, 52, 183, 'DISPENSAIRE RAFRAF LA PLAGE'),
+(621, 52, 78, 'PMI RAS JEBEL'),
+(622, 52, 186, 'DISPENSAIRE TINJA'),
+(623, 5, 5, 'CSB ATIANA'),
+(625, 60, 242, 'CLINIQUE ELYSSA'),
+(626, 66, 60, 'CSB INTILAKA'),
+(628, 35, 214, 'HOPITAL OUED MLIZ'),
+(629, 60, 245, 'HOPITAL KSOUR'),
+(630, 60, 248, 'HOPITAL TAJEROUINE'),
+(632, 75, 133, 'CLINIQUE BASSETIN'),
+(635, 6, 43, 'CLINIQUE MIRON'),
+(636, 36, 41, 'CLINIQUE PASTEUR'),
+(637, 36, 39, 'CLINIQUE DES CCV (IBN ZOHR)'),
+(638, 10, 11, 'CLINIQUE ABOULOUBEBA'),
+(639, 49, 118, 'POLYCLINIQUES HAMMAMET'),
+(640, 41, 151, 'HOPITAL OUERDANINE'),
+(641, 6, 43, 'CLINIQUE OPHTAMOLOGIE'),
+(644, 36, 39, 'CLINIQUE CCV IBN ZOHR'),
+(645, 6, 43, 'CLINIQUE DE CARDIOLOGIE'),
+(646, 37, 168, 'HOPITAL TESTOUR'),
+(647, 65, 59, 'CSB KALAAT LANDLOUS'),
+(648, 31, 238, 'HOPITAL SOUK EL AHAD'),
+(650, 61, 395, 'HOPITAL ROHIA'),
+(651, 38, 99, 'CLINIQUE EL HAKIM'),
+(654, 60, 124, 'HOPITAL DE DAHMANI'),
+(660, 79, 462, 'CLINIQUE INTERNATIONALE DE DJERBA'),
+(661, 38, NULL, 'POLYCLINIQUE CAP BON'),
+(662, 36, 39, 'CLINIQUE ORL IBN ZOHR'),
+(663, 36, 123, 'CLINIQUE EL MANAR'),
+(664, 36, 145, 'PMI MONTPLAISIR'),
+(665, 20, 21, 'CSB NAKHLA'),
+(666, 6, 43, 'INSTITUT VISION ET RETINE'),
+(667, 20, NULL, 'GROUPEMENT DE SANTE DE BASE DE BIZERTE'),
+(668, 34, 450, 'GROUPEMENT DE SANTE DE BASE DE BEJA'),
+(669, 26, 27, 'GROUPEMENT DE SANTE DE BASE DE JENDOUBA'),
+(670, 19, 20, 'GROUPEMENT DE SANTE DE BASE DU KEF'),
+(671, 27, 28, 'GROUPEMENT DE SANTE DE BASE DE BEN AROUS'),
+(672, 1, 1, 'GROUPEMENT DE SANTE DE BASE DE ARIANA'),
+(673, 67, 141, 'GROUPEMENT DE SANTE DE BASE DE TUNIS NORD'),
+(674, 2, 2, 'GROUPEMENT DE SANTE DE BASE DE MANNOUBA'),
+(675, 17, 18, 'GROUPEMENT DE SANTE DE BASE DE SILIANA'),
+(676, 22, 23, 'GROUPEMENT DE SANTE DE BASE DE ZAGHOUAN'),
+(677, 8, 9, 'GROUPEMENT DE SANTE DE BASE DE SOUSSE'),
+(678, 14, 45, 'GROUPEMENT DE SANTE DE BASE DE KAIROUAN'),
+(679, 23, 24, 'GROUPEMENT DE SANTE DE BASE DE MAHDIA'),
+(680, 33, 231, 'GROUPEMENT DE SANTE DE BASE DE KASSERINE'),
+(681, 25, 26, 'GROUPEMENT DE SANTE DE BASE DE SIDI BOUZID'),
+(682, 30, 32, 'GROUPEMENT DE SANTE DE BASE DE GAFSA'),
+(683, 18, NULL, 'GROUPEMENT SANTE DE BASE DE TOZEUR'),
+(684, 31, 33, 'GROUPEMENT DE SANTE DE BASE DE KEBELLI'),
+(685, 13, 14, 'GROUPEMENT SANTE DE BASE DE SFAX'),
+(686, 10, 433, 'GROUPEMENT SANTE DE BASE DE GABES'),
+(687, 12, 13, 'GROUPEMENT DE SANTE DE BASE DEMEDNINE'),
+(688, 24, NULL, 'GROUPEMENT SANTE DE BASE DE TATAOUINE'),
+(689, 79, 462, 'GROUPEMENT SANTE DE BASE DE DJERBA'),
+(690, 29, 465, 'DISPENSAIRE SOMAA'),
+(691, 6, 43, 'CLNQUE OPHTALMOLOGIE LAC 1'),
+(692, 20, 21, 'CLINIQUE AMEN BIZERTE'),
+(693, 16, 17, 'CLINIQUE AMEN NABEUL');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `governorate`
+--
+
+CREATE TABLE `governorate` (
+  `id` int(11) NOT NULL,
+  `sector_id` int(11) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `governorate`
+--
+
+INSERT INTO `governorate` (`id`, `sector_id`, `name`) VALUES
+(1, 1, 'ARIANA'),
+(2, 1, 'MANNOUBA'),
+(3, 1, 'BEN AROUS 3'),
+(4, 1, 'TUNIS 3'),
+(5, 1, 'TUNIS 1A'),
+(6, 1, 'TUNIS 2'),
+(7, 3, 'MONASTIR'),
+(8, 3, 'SOUSSE 1'),
+(9, 3, 'SOUSSE 2B'),
+(10, 2, 'GABES'),
+(11, 2, 'SFAX 3'),
+(12, 2, 'MEDENINE'),
+(13, 2, 'SFAX 1A'),
+(14, 3, 'KAIRAOUAN'),
+(15, 1, 'BIZERTE 1'),
+(16, 3, 'NABEUL'),
+(17, 1, 'SILIANA'),
+(18, 2, 'TOZEUR'),
+(19, 1, 'KEF'),
+(20, 1, 'BIZERTE'),
+(21, 2, 'DJERBA-ZARZIS'),
+(22, 1, 'ZAGHOUAN'),
+(23, 3, 'MAHDIA'),
+(24, 2, 'TATAOUINE'),
+(25, 2, 'SIDI BOUZID'),
+(26, 1, 'JENDOUBA'),
+(27, 1, 'BEN AROUS'),
+(29, 3, 'NABEUL 3'),
+(30, 2, 'GAFSA'),
+(31, 2, 'KEBILI'),
+(32, 3, 'MONASTIR 1'),
+(33, 2, 'KASSERINE'),
+(34, 1, 'BEJA'),
+(35, 1, 'JENDOUBA PERI'),
+(36, 1, 'TUNIS 4'),
+(37, 1, 'BEJA PERI'),
+(38, 3, 'NABEUL 2'),
+(39, 2, 'SFAX 1B'),
+(40, 3, 'MAHDIA PERI'),
+(41, 3, 'MONASTIR 2'),
+(42, 2, 'GAFSA PERI'),
+(43, 2, 'SFAX 2'),
+(44, 3, 'SOUSSE 2C'),
+(45, 3, 'SOUSSE 4'),
+(46, 1, 'BEN AROUS 4'),
+(47, 1, 'BEN AROUS 1'),
+(48, 1, 'BEN AROUS 2'),
+(49, 3, 'NABEUL 1'),
+(50, 1, 'MANNOUBA 1'),
+(51, 1, 'TUNIS 1C'),
+(52, 1, 'BIZERTE 2'),
+(53, 3, 'SOUSSE 3'),
+(54, 3, 'MONASTIR 3'),
+(55, 2, 'GABES PERI'),
+(56, 1, 'ZAGHOUAN PERI'),
+(57, 3, 'KAIRAOUAN PERI'),
+(58, 1, 'MANNOUBA 3'),
+(59, 1, 'MANNOUBA 2'),
+(60, 1, 'KEF PERI'),
+(61, 1, 'SILIANA PERI'),
+(62, 3, 'SOUSSE 2A'),
+(63, 1, 'ARIANA 2'),
+(64, 1, 'ARIANA 1'),
+(65, 1, 'ARIANA 5'),
+(66, 1, 'ARIANA 3'),
+(67, 1, 'ARIANA 4'),
+(68, 2, 'KASSERINE PERI'),
+(69, 1, 'TUNIS 1B'),
+(70, 2, 'MEDENINE 1'),
+(71, 2, 'SIDI BOUZID PERI'),
+(72, 2, 'KEBILI PERI'),
+(75, 2, 'SFAX'),
+(79, 2, 'DJERBA');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `groupe`
+--
+
+CREATE TABLE `groupe` (
+  `id` int(11) NOT NULL,
+  `name` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `groupe`
+--
+
+INSERT INTO `groupe` (`id`, `name`) VALUES
+(1, 'Medecins'),
+(2, 'Pharmacie'),
+(3, 'Pharmacie - grossiste'),
+(4, 'Autre');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `postal_code`
+--
+
+CREATE TABLE `postal_code` (
+  `id` int(11) NOT NULL,
+  `id_del` int(11) DEFAULT NULL,
+  `nom` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `postal_code`
+--
+
+INSERT INTO `postal_code` (`id`, `id_del`, `nom`) VALUES
+(1, 1, '2080'),
+(2, 2, '2010'),
+(3, 3, '2074'),
+(4, 4, '1007'),
+(5, 5, '1006'),
+(6, 6, '1089'),
+(7, 7, '2046'),
+(8, 8, '5000'),
+(9, 9, '4000'),
+(10, 10, '4054'),
+(11, 11, '6000'),
+(12, 12, '3080'),
+(13, 13, '4100'),
+(14, 14, '3084'),
+(15, 15, '3140'),
+(16, 16, '7072'),
+(17, 17, '8000'),
+(18, 18, '6100'),
+(19, 19, '2200'),
+(20, 20, '7100'),
+(21, 21, '7000'),
+(22, 22, '4136'),
+(23, 23, '1100'),
+(24, 24, '5100'),
+(25, 25, '3200'),
+(26, 26, '9100'),
+(27, 27, '8100'),
+(28, 28, '2013'),
+(29, 29, '2086'),
+(30, 30, '8030'),
+(31, 31, '2060'),
+(32, 32, '2100'),
+(33, 33, '4200'),
+(34, 34, '5070'),
+(35, 35, '1230'),
+(36, 36, '9000'),
+(37, 37, '8112'),
+(38, 38, '4153'),
+(39, 39, '1002'),
+(40, 40, '9070'),
+(41, 41, '1082'),
+(42, 42, '4071'),
+(43, 43, '2070'),
+(44, 44, '8080'),
+(45, 45, '3112'),
+(46, 46, '3060'),
+(47, 47, '5153'),
+(48, 48, '5034'),
+(49, 49, '2130'),
+(50, 50, '3070'),
+(51, 51, '4170'),
+(52, 52, '2052'),
+(53, 53, '4030'),
+(54, 54, '4070'),
+(55, 55, '2000'),
+(56, 56, '1008'),
+(57, 57, '2057'),
+(58, 58, '2039'),
+(59, 59, '2022'),
+(60, 60, '2041'),
+(61, 61, '2014'),
+(62, 62, '2018'),
+(63, 63, '2093'),
+(64, 64, '2042'),
+(65, 65, '1135'),
+(66, 66, '1145'),
+(67, 67, '2064'),
+(68, 68, '8014'),
+(69, 69, '8060'),
+(70, 70, '8090'),
+(71, 71, '1110'),
+(72, 72, '1007'),
+(73, 73, '2070'),
+(74, 74, '1002'),
+(75, 75, '2062'),
+(76, 76, '2094'),
+(77, 77, '7016'),
+(78, 78, '7070'),
+(79, 79, '4011'),
+(80, 80, '5030'),
+(81, 81, '4060'),
+(82, 82, '5111'),
+(83, 83, '5012'),
+(84, 84, '4059'),
+(85, 85, '4061'),
+(86, 86, '4031'),
+(87, 87, '3011'),
+(88, 88, '3030'),
+(89, 89, '3048'),
+(90, 90, '3021'),
+(91, 91, '3052'),
+(92, 92, '3010'),
+(93, 93, '3048'),
+(94, 94, '3000'),
+(95, 95, '8040'),
+(96, 96, '6027'),
+(97, 97, '2097'),
+(98, 98, '2051'),
+(99, 99, '8070'),
+(100, 100, '1140'),
+(101, 101, '1000'),
+(102, 102, '3180'),
+(103, 103, '8021'),
+(104, 104, '8140'),
+(105, 105, '1095'),
+(106, 106, '3083'),
+(107, 107, '3040'),
+(108, 108, '9010'),
+(109, 109, '2011'),
+(110, 110, '6080'),
+(111, 111, '2057'),
+(112, 112, '3061'),
+(113, 113, '8170'),
+(114, 114, '5140'),
+(115, 115, '1130'),
+(116, 116, '5130'),
+(117, 117, '2034'),
+(118, 118, '8050'),
+(119, 119, '8010'),
+(120, 120, '8045'),
+(121, 121, '8020'),
+(122, 122, '5141'),
+(123, 123, '2092'),
+(124, 124, '7170'),
+(125, 125, '7030'),
+(126, 126, '7180'),
+(127, 127, '2089'),
+(128, 128, '2009'),
+(129, 129, '3050'),
+(130, 130, '3020'),
+(131, 131, '3050'),
+(132, 132, '3034'),
+(133, 133, '3084'),
+(134, 134, '3084'),
+(135, 135, '3081'),
+(136, 136, '3039'),
+(137, 137, '5170'),
+(138, 138, '2037'),
+(139, 139, '1004'),
+(140, 140, '2012'),
+(141, 141, '2091'),
+(142, 142, '2031'),
+(143, 143, '1142'),
+(144, 144, '1114'),
+(145, 145, '1073'),
+(146, 146, '8011'),
+(147, 147, '2063'),
+(148, 148, '1193'),
+(149, 149, '8130'),
+(150, 150, '8000'),
+(151, 151, '5010'),
+(152, 152, '4023'),
+(153, 153, '5021'),
+(154, 154, '3133'),
+(155, 155, '5080'),
+(156, 156, '4040'),
+(157, 157, '4042'),
+(158, 158, '4022'),
+(159, 159, '4081'),
+(160, 160, '5040'),
+(161, 161, '4175'),
+(162, 162, '2073'),
+(163, 163, '2081'),
+(164, 164, '2083'),
+(165, 165, '2088'),
+(166, 166, '2058'),
+(167, 167, '9023'),
+(168, 168, '9014'),
+(169, 169, '9080'),
+(170, 170, '9040'),
+(171, 171, '9022'),
+(172, 172, '9030'),
+(173, 173, '2055'),
+(174, 174, '7014'),
+(175, 175, '7012'),
+(176, 176, '7094'),
+(177, 177, '7033'),
+(178, 178, '7040'),
+(179, 179, '7021'),
+(180, 180, '7035'),
+(181, 181, '7080'),
+(182, 182, '7034'),
+(183, 183, '7015'),
+(184, 184, '7010'),
+(185, 185, '7025'),
+(186, 186, '7032'),
+(187, 187, '7060'),
+(188, 188, '6031'),
+(189, 189, '6041'),
+(190, 190, '6011'),
+(191, 191, '6001'),
+(192, 192, '6021'),
+(193, 193, '6060'),
+(194, 194, '6030'),
+(195, 195, '6010'),
+(196, 196, '6045'),
+(197, 197, '6024'),
+(198, 198, '6052'),
+(199, 199, '6032'),
+(200, 200, '6072'),
+(201, 201, '2139'),
+(202, 202, '2143'),
+(203, 203, '2145'),
+(204, 204, '2151'),
+(205, 205, '2123'),
+(206, 206, '2170'),
+(207, 207, '2110'),
+(208, 208, '2120'),
+(209, 209, '2116'),
+(210, 210, '2131'),
+(211, 211, '2116'),
+(212, 212, '8116'),
+(213, 213, '8160'),
+(214, 214, '8115'),
+(215, 215, '3113'),
+(216, 216, '3116'),
+(217, 217, '3150'),
+(218, 218, '3135'),
+(219, 219, '3160'),
+(220, 220, '3114'),
+(221, 221, '3170'),
+(222, 222, '3120'),
+(223, 223, '3110'),
+(224, 224, '3132'),
+(225, 225, '1233'),
+(226, 226, '1223'),
+(227, 227, '1232'),
+(228, 228, '1241'),
+(229, 229, '1280'),
+(230, 230, '1250'),
+(231, 231, '1279'),
+(232, 232, '1212'),
+(233, 233, '1234'),
+(234, 234, '1226'),
+(235, 235, '1270'),
+(236, 236, '1261'),
+(237, 237, '1215'),
+(238, 238, '4236'),
+(239, 239, '4215'),
+(240, 240, '4264'),
+(241, 241, '4214'),
+(242, 242, '7114'),
+(243, 243, '7113'),
+(244, 244, '7130'),
+(245, 245, '7160'),
+(246, 246, '7131'),
+(247, 247, '7120'),
+(248, 248, '7132'),
+(249, 249, '7112'),
+(250, 250, '2085'),
+(251, 251, '1064'),
+(252, 252, '2036'),
+(253, 253, '2053'),
+(254, 254, '2037'),
+(255, 255, '1057'),
+(256, 256, '1046'),
+(257, 257, '2017'),
+(258, 258, '2070'),
+(259, 259, '2078'),
+(260, 260, '2025'),
+(261, 261, '2026'),
+(262, 262, '2046'),
+(263, 263, '1075'),
+(264, 264, '1008'),
+(265, 265, '1029'),
+(266, 266, '2035'),
+(267, 267, '1089'),
+(268, 268, '1005'),
+(269, 269, '1001'),
+(270, 270, '5141'),
+(271, 271, '5115'),
+(272, 272, '5131'),
+(273, 273, '5136'),
+(274, 274, '5154'),
+(275, 275, '5112'),
+(276, 276, '5180'),
+(277, 277, '5114'),
+(278, 278, '5120'),
+(279, 279, '5121'),
+(280, 280, '5151'),
+(281, 281, '5116'),
+(282, 282, '4110'),
+(283, 283, '4141'),
+(284, 284, '4145'),
+(285, 285, '4134'),
+(286, 286, '4135'),
+(287, 287, '4155'),
+(288, 288, '4115'),
+(289, 289, '4145'),
+(290, 290, '4144'),
+(291, 291, '4146'),
+(292, 292, '4185'),
+(293, 293, '4131'),
+(294, 294, '4130'),
+(295, 295, '4181'),
+(296, 296, '4173'),
+(297, 297, '5053'),
+(298, 298, '5071'),
+(299, 299, '5054'),
+(300, 300, '5080'),
+(301, 301, '5025'),
+(302, 302, '5026'),
+(303, 303, '5015'),
+(304, 304, '5034'),
+(305, 305, '5026'),
+(306, 306, '5011'),
+(307, 307, '5031'),
+(308, 308, '5099'),
+(309, 309, '5032'),
+(310, 310, '5033'),
+(311, 311, '5022'),
+(312, 312, '5024'),
+(313, 313, '5036'),
+(314, 314, '5013'),
+(315, 315, '5035'),
+(316, 316, '5061'),
+(317, 317, '5044'),
+(318, 318, '5023'),
+(319, 319, '5028'),
+(320, 320, '8035'),
+(321, 321, '8056'),
+(322, 322, '8022'),
+(323, 323, '8014'),
+(324, 324, '8031'),
+(325, 325, '8055'),
+(326, 326, '8033'),
+(327, 327, '8013'),
+(328, 328, '8044'),
+(329, 329, '8089'),
+(330, 330, '8012'),
+(331, 331, '8025'),
+(332, 332, '8096'),
+(333, 333, '8090'),
+(334, 334, '8015'),
+(335, 335, '8062'),
+(336, 336, '8052'),
+(337, 337, '8026'),
+(338, 338, '8024'),
+(339, 339, '8056'),
+(340, 340, '8099'),
+(341, 341, '8046'),
+(342, 342, '3030'),
+(343, 343, '3092'),
+(344, 344, '3094'),
+(345, 345, '3064'),
+(346, 346, '3042'),
+(347, 347, '3099'),
+(348, 348, '3043'),
+(349, 349, '3089'),
+(350, 350, '3066'),
+(351, 351, '3081'),
+(352, 352, '3037'),
+(353, 353, '3078'),
+(354, 354, '3026'),
+(355, 355, '3063'),
+(356, 356, '3002'),
+(357, 357, '3031'),
+(358, 358, '3041'),
+(359, 359, '3032'),
+(360, 360, '3051'),
+(361, 361, '3022'),
+(362, 362, '3013'),
+(363, 363, '3093'),
+(364, 364, '3012'),
+(365, 365, '3054'),
+(366, 366, '3067'),
+(367, 367, '3044'),
+(368, 368, '3071'),
+(369, 369, '3023'),
+(370, 370, '3056'),
+(371, 371, '3070'),
+(372, 372, '3062'),
+(373, 373, '3091'),
+(374, 374, '9169'),
+(375, 375, '9159'),
+(376, 376, '9122'),
+(377, 377, '9112'),
+(378, 378, '9110'),
+(379, 379, '9171'),
+(380, 380, '9158'),
+(381, 381, '9114'),
+(382, 382, '9154'),
+(383, 383, '9180'),
+(384, 384, '9115'),
+(385, 385, '9115'),
+(386, 386, '9121'),
+(387, 387, '6170'),
+(388, 388, '6134'),
+(389, 389, '6180'),
+(390, 390, '6116'),
+(391, 391, '6121'),
+(392, 392, '6141'),
+(393, 393, '6120'),
+(394, 394, '6142'),
+(395, 395, '6150'),
+(396, 396, '4016'),
+(397, 397, '4010'),
+(398, 398, '4015'),
+(399, 399, '4012'),
+(400, 400, '4021'),
+(401, 401, '4089'),
+(402, 402, '4014'),
+(403, 403, '4020'),
+(404, 404, '4026'),
+(405, 405, '4041'),
+(406, 406, '4013'),
+(407, 407, '4025'),
+(408, 408, '4061'),
+(409, 409, '3262'),
+(410, 410, '3212'),
+(411, 411, '3220'),
+(412, 412, '3240'),
+(413, 413, '2253'),
+(414, 414, '2214'),
+(415, 415, '2223'),
+(416, 416, '2240'),
+(417, 417, '2212'),
+(418, 418, '1112'),
+(419, 419, '1111'),
+(420, 420, '1154'),
+(421, 421, '1115'),
+(422, 422, '1145'),
+(423, 423, '4061'),
+(424, 463, '8000'),
+(425, 429, '4000'),
+(426, 424, '1000'),
+(427, 425, '2037'),
+(428, 426, '2009'),
+(429, 427, '2100'),
+(430, 428, '2100'),
+(431, 430, '2000'),
+(432, 431, '3001'),
+(433, 432, '4234'),
+(434, 433, '6000'),
+(435, 434, '3140'),
+(436, 435, '2000'),
+(437, 436, '2052'),
+(438, 437, '1002'),
+(439, 438, '7070'),
+(440, 439, '7053'),
+(441, 440, '5111'),
+(442, 441, '2035'),
+(443, 442, '1002'),
+(444, 443, '2013'),
+(445, 444, '1064'),
+(446, 445, '2092'),
+(447, 446, '6020'),
+(448, 447, '2000'),
+(449, 448, '2045'),
+(450, 449, '1082'),
+(451, 450, '9022'),
+(452, 451, '3010'),
+(453, 452, '2070'),
+(454, 453, '2088'),
+(455, 454, '2092'),
+(456, 455, '7014'),
+(457, 456, '1073'),
+(458, 457, '2045'),
+(459, 458, '3060'),
+(460, 459, '2050'),
+(461, 460, '3011'),
+(462, 461, '1007'),
+(463, 462, '4180'),
+(464, 465, '8023');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `potentiel`
+--
+
+CREATE TABLE `potentiel` (
+  `id` int(11) NOT NULL,
+  `valeur` varchar(11) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `potentiel`
+--
+
+INSERT INTO `potentiel` (`id`, `valeur`) VALUES
+(1, 'A'),
+(2, 'B'),
+(3, 'C'),
+(4, 'D'),
+(5, 'KOL'),
+(6, 'A+');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `prospect`
+--
+
+CREATE TABLE `prospect` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code_client` varchar(200) DEFAULT NULL,
+  `nom` varchar(150) DEFAULT NULL,
+  `prenom` varchar(150) DEFAULT NULL,
+  `spec` varchar(150) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `tel_2` varchar(200) DEFAULT NULL,
+  `gsm` varchar(255) DEFAULT NULL,
+  `gsm_2` varchar(200) DEFAULT NULL,
+  `fax` varchar(200) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `gouvernorat` varchar(200) DEFAULT NULL,
+  `delegation` varchar(200) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `code_postal` varchar(50) DEFAULT NULL,
+  `etablissement` varchar(300) DEFAULT NULL,
+  `service` varchar(255) DEFAULT NULL,
+  `activite` varchar(200) DEFAULT NULL,
+  `secteur_ims` varchar(255) DEFAULT NULL,
+  `potentiel` varchar(255) DEFAULT NULL,
+  `commentaire` text,
+  `pkr` tinytext,
+  `public` varchar(20) DEFAULT '1',
+  `cree_par` int(11) DEFAULT '0',
+  `modifier_par` int(11) DEFAULT '0',
+  `created_at` varchar(30) DEFAULT NULL,
+  `IdFact` varchar(100) DEFAULT NULL,
+  `phyto` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(10) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `GestUser` tinyint(4) DEFAULT '0',
+  `vueDM` tinyint(4) DEFAULT '0',
+  `vuePros` tinyint(4) DEFAULT '0',
+  `SupPros` tinyint(4) DEFAULT '0',
+  `ModPros` tinyint(4) DEFAULT '0',
+  `Moddemande` tinyint(4) DEFAULT '0',
+  `ModVisite` tinyint(4) DEFAULT '0',
+  `cree_par` int(11) DEFAULT NULL,
+  `modifier_par` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sector`
+--
+
+CREATE TABLE `sector` (
+  `id` int(11) NOT NULL,
+  `name` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `sector`
+--
+
+INSERT INTO `sector` (`id`, `name`) VALUES
+(1, 'Nord'),
+(2, 'Sud'),
+(3, 'Centre'),
+(4, 'GMS'),
+(5, 'Marketing');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `specialite`
+--
+
+CREATE TABLE `specialite` (
+  `id` int(11) NOT NULL,
+  `name` varchar(300) DEFAULT NULL,
+  `groupe_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `specialite`
+--
+
+INSERT INTO `specialite` (`id`, `name`, `groupe_id`) VALUES
+(1, 'ANESTHESIE REANIMATION', 1),
+(2, 'CARDIOLOGIE', 1),
+(3, 'CCVT', 1),
+(4, 'CHIRURGIE GENERALE', 1),
+(5, 'CHIRURGIE ORTHOPEDIQUE', 1),
+(6, 'DERMATOLOGIE', 1),
+(7, 'ENDOCRINOLOGIE', 1),
+(8, 'GASTRO-ENTEROLOGIE', 1),
+(9, 'GYNECOLOGIE-OBSTETRIQUE', 1),
+(10, 'HEMATOLOGIE CLINIQUE', 1),
+(11, 'MALADIES INFECTIEUSES', 1),
+(12, 'MEDECINE CARCINOLOGIQUE', 1),
+(13, 'MEDECINE GENERALE', 1),
+(14, 'MEDECINE INTERNE', 1),
+(15, 'MEDECINE PHYSIQUE', 1),
+(17, 'NEPHROLOGIE', 1),
+(18, 'PSYCHIATRIE', 1),
+(19, 'NEUROLOGIE', 1),
+(20, 'NEURO-CHIRURGIE', 1),
+(21, 'PNEUMO-PHTISIOLOGIE', 1),
+(22, 'O.R.L.', 1),
+(23, 'RHUMATOLOGIE', 1),
+(24, 'UROLOGIE', 1),
+(25, 'REA MED', 1),
+(26, 'PHARMACIEN HOSPITALIER', 2),
+(29, 'PEDIATRIE', 1),
+(30, 'NUTRITION', 4),
+(31, 'INFERMIER', 4),
+(32, 'SAGE FEMME', 4),
+(33, 'NEONATOLOGIE', 1),
+(34, 'MEDECIN DENTISTE', 1),
+(35, 'PHARMACIEN D\'OFFICINE DE JOUR', 2),
+(36, 'OPHTALMOLOGIE', 1),
+(37, 'PHYSIOTHERAPIE (KINESITHERAPIE)', 4),
+(38, 'RADIOLOGIE (DIAGNOSTIC)', 4),
+(39, 'MEDECINE DU TRAVAIL', 1),
+(40, 'LABORATOIRE D\'ANALYSE', 4),
+(41, 'PHARMACIEN D\'OFFICINE DE NUIT', 2),
+(42, 'CHIRURGIE PLASTIQUE & REPARATRICE', 1),
+(43, 'RADIOTHERAPIE', 1),
+(44, 'ORTHOPEDIE DENTO FACIALE', 1),
+(45, 'CHIRURGIE CARCINOLOGIE', 1),
+(46, 'STOMATOLOGIE ET CHIRURGIE MAXILLO-FACIALE', 1),
+(47, 'CHIRURGIE PEDIATRIQUE', 1),
+(48, 'ANATOMIE PATHOLOGIQUE', 1),
+(49, 'SPEC MANQUANTE !!', 1),
+(50, 'PHYSIOLOGIE & EXPLORATION FONCTIONNELLE', 4),
+(51, 'PEDO -PSYCHIATRIE', 1),
+(52, 'BIOPHYSIQUE ET MEDECINE NUCLEAIRE', 1),
+(53, 'PHARMACIEN GROSSISTE', 3),
+(54, 'TECHNICIEN DE PEDIATRIE', 4),
+(56, 'URGENCE', 1),
+(59, 'REANIMATION MEDICALE', 1),
+(60, 'PSYCHIATRIE INFANTILE', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `visite`
+--
+
+CREATE TABLE `visite` (
+  `id` int(11) NOT NULL,
+  `id_pros` int(11) DEFAULT NULL,
+  `id_visiteur` int(11) DEFAULT NULL,
+  `date_visite` date DEFAULT NULL,
+  `commentaire` text,
+  `type` tinyint(2) DEFAULT '1',
+  `public` tinyint(2) DEFAULT '1',
+  `vad` tinyint(2) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `activite`
+--
+ALTER TABLE `activite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `affectation`
+--
+ALTER TABLE `affectation`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_prospect` (`id_prospect`,`id_deleg`);
+
+--
+-- Index pour la table `delegation`
+--
+ALTER TABLE `delegation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `departement`
+--
+ALTER TABLE `departement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `etablissement`
+--
+ALTER TABLE `etablissement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `governorate`
+--
+ALTER TABLE `governorate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `groupe`
+--
+ALTER TABLE `groupe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `postal_code`
+--
+ALTER TABLE `postal_code`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `potentiel`
+--
+ALTER TABLE `potentiel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `prospect`
+--
+ALTER TABLE `prospect`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IdFact` (`IdFact`);
+
+--
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sector`
+--
+ALTER TABLE `sector`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `specialite`
+--
+ALTER TABLE `specialite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `visite`
+--
+ALTER TABLE `visite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `activite`
+--
+ALTER TABLE `activite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT pour la table `affectation`
+--
+ALTER TABLE `affectation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `delegation`
+--
+ALTER TABLE `delegation`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
+--
+-- AUTO_INCREMENT pour la table `departement`
+--
+ALTER TABLE `departement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `governorate`
+--
+ALTER TABLE `governorate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+--
+-- AUTO_INCREMENT pour la table `groupe`
+--
+ALTER TABLE `groupe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `postal_code`
+--
+ALTER TABLE `postal_code`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=465;
+--
+-- AUTO_INCREMENT pour la table `potentiel`
+--
+ALTER TABLE `potentiel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `prospect`
+--
+ALTER TABLE `prospect`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `sector`
+--
+ALTER TABLE `sector`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `specialite`
+--
+ALTER TABLE `specialite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+--
+-- AUTO_INCREMENT pour la table `visite`
+--
+ALTER TABLE `visite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
