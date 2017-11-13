@@ -3,19 +3,19 @@
  * Created by PhpStorm.
  * User: nagui
  * Date: 28/08/17
- * Time: 14:50
+ * Time: 14:53
  */
 
-namespace AppBundle\Entity\Pros;
+namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="governorate")
+ * @ORM\Table(name="sector")
  */
-class Governorate
+class Sector
 {
     /**
      * @ORM\Id
@@ -29,11 +29,12 @@ class Governorate
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pros\Sector")
-     * @ORM\JoinColumn(nullable=false)
+     * @return mixed
      */
-    private $sector;
-
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @return mixed
      */
@@ -50,31 +51,8 @@ class Governorate
         $this->name = $name;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSector()
-    {
-        return $this->sector;
-    }
-
-    /**
-     * @param mixed $sector
-     */
-    public function setSector(Sector $sector)
-    {
-        $this->sector = $sector;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     public function __toString()
     {
- return $this->getName();
-     }
+     return $this->getName();
+    }
 }

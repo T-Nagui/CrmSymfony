@@ -6,8 +6,8 @@
  * Time: 12:45
  */
 
-namespace AppBundle\Entity\Pros;
 
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,7 +28,7 @@ class Speciality
      */
     private $name;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pros\Groupe")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Groupe")
      * @ORM\JoinColumn(nullable=false)
      */
     private $groupe;

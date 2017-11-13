@@ -6,7 +6,7 @@
  * Time: 11:17
  */
 
-namespace AppBundle\Entity\Pros;
+namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
@@ -28,7 +28,7 @@ class Delegation
      */
     private $name;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Pros\Governorate")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Governorate")
      * @ORM\JoinColumn(nullable=false)
      */
     private $governorate;

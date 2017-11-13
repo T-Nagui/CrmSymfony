@@ -3,19 +3,19 @@
  * Created by PhpStorm.
  * User: nagui
  * Date: 04/09/17
- * Time: 10:34
+ * Time: 10:28
  */
 
-namespace AppBundle\Entity\Pros;
+namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="activite")
+ * @ORM\Table(name="potential")
  */
-class Activite
+class Potential
 {
     /**
      * @ORM\Id
@@ -26,7 +26,7 @@ class Activite
     /**
      * @ORM\Column(type="string")
      */
-    private $name;
+    private $value;
 
     /**
      * @return mixed
@@ -35,27 +35,25 @@ class Activite
     {
         return $this->id;
     }
+
     /**
      * @return mixed
      */
-    public function getName()
+    public function getValue()
     {
-        return $this->name;
+        return $this->value;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $value
      */
-    public function setName($name)
+    public function setValue($value)
     {
-        $this->name = $name;
+        $this->value = $value;
     }
-    /**
-     * @var string
-     */
+
     public function __toString()
     {
-     return $this->getName();
-    }
-
+    return $this->getValue();
+     }
 }

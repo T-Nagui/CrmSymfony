@@ -22,7 +22,7 @@ class ProspectController extends Controller
      */
     public function listAction(){
         $em=$this->getDoctrine()->getManager();
-        $prospects=$em->getRepository('AppBundle:Pros\Prospect')
+        $prospects=$em->getRepository('AppBundle:Prospect\Prospect')
             ->findAll();
         return $this->render('prospect/liste.html.twig',[
             'prospects'=>$prospects
