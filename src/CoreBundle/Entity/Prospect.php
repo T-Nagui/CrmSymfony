@@ -5,41 +5,41 @@
  * Date: 25/08/17
  * Time: 12:05
  */
-namespace AppBundle\Entity;
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Entity\ProspectRepository")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ProspectRepository")
  * @ORM\Table(name="prospect")
  */
 class Prospect extends User
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Speciality")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Speciality")
      * @ORM\JoinColumn(nullable=false)
      */
 
     private $speciality;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Governorate")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Governorate")
      * @ORM\JoinColumn(nullable=false)
      */
     private $governorate;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Activity")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Activity")
      * @ORM\JoinColumn(nullable=false)
      */
     private $activity;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Potential")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Potential")
      * @ORM\JoinColumn(nullable=true)
      */
     private $potential;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Delegation")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Delegation")
      * @ORM\JoinColumn(nullable=false)
      */
     private $delegation;

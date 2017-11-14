@@ -3,19 +3,19 @@
  * Created by PhpStorm.
  * User: nagui
  * Date: 28/08/17
- * Time: 12:45
+ * Time: 14:50
  */
 
+namespace CoreBundle\Entity;
 
-namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="speciality")
+ * @ORM\Table(name="governorate")
  */
-class Speciality
+class Governorate
 {
     /**
      * @ORM\Id
@@ -27,34 +27,13 @@ class Speciality
      * @ORM\Column(type="string")
      */
     private $name;
+
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Groupe")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Sector")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $groupe;
+    private $sector;
 
-    /**
-     * @return mixed
-     */
-    public function getGroupe()
-    {
-        return $this->groupe;
-    }
-
-    /**
-     * @param mixed $groupe
-     */
-    public function setGroupe($groupe)
-    {
-        $this->groupe = $groupe;
-    }
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     /**
      * @return mixed
      */
@@ -70,8 +49,32 @@ class Speciality
     {
         $this->name = $name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSector()
+    {
+        return $this->sector;
+    }
+
+    /**
+     * @param mixed $sector
+     */
+    public function setSector(Sector $sector)
+    {
+        $this->sector = $sector;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     public function __toString()
     {
-       return  $this->getName();
-    }
+ return $this->getName();
+     }
 }

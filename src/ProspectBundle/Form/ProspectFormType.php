@@ -6,12 +6,9 @@
  * Time: 12:47
  */
 
-namespace AppBundle\Form;
+namespace ProspectBundle\Form;
 
-use AppBundle\Entity\Pros\Delegation;
 use Doctrine\ORM\EntityManager;
-use AppBundle\Entity\Pros\Prospect;
-use AppBundle\Entity\Pros\Governorate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -57,7 +54,7 @@ class ProspectFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
 $resolver->setDefaults([
-    'data_class'=>'AppBundle\Entity\Pros\Prospect'
+    'data_class'=>'ProspectBundle\Entity\Prospect'
 ]);
     }
 }

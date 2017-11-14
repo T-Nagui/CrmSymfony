@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Traits;
+namespace CoreBundle\Traits;
 
 abstract class TraceableAbstract
 {

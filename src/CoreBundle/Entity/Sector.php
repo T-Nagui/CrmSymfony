@@ -2,20 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: nagui
- * Date: 04/09/17
- * Time: 10:28
+ * Date: 28/08/17
+ * Time: 14:53
  */
 
-namespace AppBundle\Entity;
+namespace CoreBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="potential")
+ * @ORM\Table(name="sector")
  */
-class Potential
+class Sector
 {
     /**
      * @ORM\Id
@@ -26,7 +26,7 @@ class Potential
     /**
      * @ORM\Column(type="string")
      */
-    private $value;
+    private $name;
 
     /**
      * @return mixed
@@ -35,25 +35,24 @@ class Potential
     {
         return $this->id;
     }
-
     /**
      * @return mixed
      */
-    public function getValue()
+    public function getName()
     {
-        return $this->value;
+        return $this->name;
     }
 
     /**
-     * @param mixed $value
+     * @param mixed $name
      */
-    public function setValue($value)
+    public function setName($name)
     {
-        $this->value = $value;
+        $this->name = $name;
     }
 
     public function __toString()
     {
-    return $this->getValue();
-     }
+     return $this->getName();
+    }
 }

@@ -3,19 +3,19 @@
  * Created by PhpStorm.
  * User: nagui
  * Date: 28/08/17
- * Time: 14:53
+ * Time: 12:45
  */
 
-namespace AppBundle\Entity;
 
+namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="sector")
+ * @ORM\Table(name="speciality")
  */
-class Sector
+class Speciality
 {
     /**
      * @ORM\Id
@@ -27,7 +27,27 @@ class Sector
      * @ORM\Column(type="string")
      */
     private $name;
+    /**
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\Groupe")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $groupe;
 
+    /**
+     * @return mixed
+     */
+    public function getGroupe()
+    {
+        return $this->groupe;
+    }
+
+    /**
+     * @param mixed $groupe
+     */
+    public function setGroupe($groupe)
+    {
+        $this->groupe = $groupe;
+    }
     /**
      * @return mixed
      */
@@ -50,9 +70,8 @@ class Sector
     {
         $this->name = $name;
     }
-
     public function __toString()
     {
-     return $this->getName();
+       return  $this->getName();
     }
 }

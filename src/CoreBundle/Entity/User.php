@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace CoreBundle\Entity;
 
 
-use AppBundle\Traits\Traceable;
+use CoreBundle\Traits\Traceable;
 use \Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;

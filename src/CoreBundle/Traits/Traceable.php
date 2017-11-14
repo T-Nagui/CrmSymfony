@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Traits;
+namespace CoreBundle\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -8,7 +8,7 @@ use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Traceable
- * @package AppBundle\Traits
+ * @package ProspectBundle\Traits
  */
 
 trait Traceable
@@ -28,7 +28,7 @@ trait Traceable
      * @var \AppBundle\Entity\User $createdBy
      *
      * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\User")
      * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      * @JMS\MaxDepth(1)
      */
@@ -38,7 +38,7 @@ trait Traceable
      * @var \AppBundle\Entity\User $updatedBy
      *
      * @Gedmo\Blameable(on="update")
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\User")
      * @ORM\JoinColumn(name="updated_by", referencedColumnName="id", onDelete="SET NULL")
      * @JMS\MaxDepth(1)
      */
@@ -77,7 +77,7 @@ trait Traceable
     }
 
     /**
-     * @return \AppBudle\Entity\User
+     * @return \AppBundle\Entity\User
      */
     public function getCreatedBy()
     {
@@ -85,7 +85,7 @@ trait Traceable
     }
 
     /**
-     * @param \AppBudle\Entity\User $createdBy
+     * @param \AppBundle\Entity\User $createdBy
      */
     public function setCreatedBy($createdBy)
     {
@@ -93,7 +93,7 @@ trait Traceable
     }
 
     /**
-     * @return \AppBudle\Entity\User
+     * @return \AppBundle\Entity\User
      */
     public function getUpdatedBy()
     {
@@ -101,7 +101,7 @@ trait Traceable
     }
 
     /**
-     * @param \AppBudle\Entity\User $updatedBy
+     * @param \AppBundle\Entity\User $updatedBy
      */
     public function setUpdatedBy($updatedBy)
     {

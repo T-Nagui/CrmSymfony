@@ -6,23 +6,24 @@
  * Time: 11:48
  */
 
-namespace AppBundle\Controller;
+namespace ProspectBundle\Controller;
 
 
 use AppBundle\Form\ProspectFormType;
+use CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProspectController extends Controller
+class ProspectController extends BaseController
 {
     /**
      * @Route("/prospects", name="liste_prospects")
      */
     public function listAction(){
         $em=$this->getDoctrine()->getManager();
-        $prospects=$em->getRepository('AppBundle:Prospect\Prospect')
+        $prospects=$em->getRepository('ProspectBundle:Prospect\Prospect')
             ->findAll();
         return $this->render('prospect/liste.html.twig',[
             'prospects'=>$prospects

@@ -3,28 +3,30 @@
  * Created by PhpStorm.
  * User: nagui
  * Date: 04/09/17
- * Time: 12:08
+ * Time: 10:34
  */
 
-namespace AppBundle\Entity;
+namespace CoreBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="groupe")
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\ActivityRepository")
+ * @ORM\Table(name="activite")
  */
-class Groupe
+class Activity
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     */private $id;
+     */
+    private $id;
     /**
      * @ORM\Column(type="string")
-     */private $name;
+     */
+    private $name;
 
     /**
      * @return mixed
@@ -33,8 +35,6 @@ class Groupe
     {
         return $this->id;
     }
-
-
     /**
      * @return mixed
      */
@@ -49,6 +49,14 @@ class Groupe
     public function setName($name)
     {
         $this->name = $name;
+    }
+    /**
+     * @var string
+     * @return string
+     */
+    public function __toString()
+    {
+     return $this->getName();
     }
 
 }
