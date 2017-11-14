@@ -9,13 +9,14 @@
 namespace ProspectBundle\Controller;
 
 
-use AppBundle\Form\ProspectFormType;
+use ProspectBundle\Form\ProspectFormType;
 use CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 class ProspectController extends BaseController
 {
     /**
