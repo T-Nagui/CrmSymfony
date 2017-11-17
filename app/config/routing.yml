@@ -5,7 +5,3 @@ core_bundle:
 app.swagger_ui:
     resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
     prefix:   /api/doc
-api:
-    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
-    type: rest
-    prefix: /api/
