@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
     jms_serializer.serialized_name_annotation_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
 
 framework:
@@ -91,6 +91,9 @@ doctrine:
                         is_bundle: false
 # Nelmio API Doc Configuration
 nelmio_api_doc:
+    routes:
+        path_patterns:
+            - ^/{_locale}/api
     documentation:
         info:
             title: My CRM App

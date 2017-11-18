@@ -1,0 +1,16 @@
+yadev_admin_api_login:
+    type: rest
+    resource: "AdminBundle:LoginApi"
+    name_prefix: api_admin_
+    prefix: "{_locale}/api/admin"
+    requirements:
+          _locale: "%api_lang%"
+
+yadev_admin_api:
+    type: rest
+    resource: "AdminBundle:AdminApi"
+    name_prefix: api_admin_
+    prefix: "{_locale}/api/admin"
+    requirements:
+          _locale: "%api_lang%"
+

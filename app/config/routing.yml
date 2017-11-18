@@ -1,7 +1,14 @@
+app.swagger_ui:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
+yadev_admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+rest_yadev_admin:
+    type: rest
+    resource: "@AdminBundle/Resources/config/routing_rest.yml"
 core_bundle:
     resource: "@CoreBundle/Controller/"
     type:     annotation
     prefix:   /
-app.swagger_ui:
-    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
-    prefix:   /api/doc
