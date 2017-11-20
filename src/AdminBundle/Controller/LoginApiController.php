@@ -26,7 +26,7 @@ class LoginApiController extends BaseController
      * @throws ApiException
      */
     public function getLoginAction(ParamFetcher $paramFetcher){
-        var_dump($paramFetcher->get('username'));
+        //var_dump($paramFetcher->get('username'));
         return [
             '_code' => 0
         ];
