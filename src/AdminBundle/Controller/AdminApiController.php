@@ -25,4 +25,9 @@ class AdminApiController  extends BaseController
                 ]
             ];
         }
+
+     /**
+      * add users for applications
+      */
+
 }

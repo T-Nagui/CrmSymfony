@@ -9,7 +9,13 @@ security:
             cost: 12
 
     role_hierarchy:
+        ROLE_SUPER_Admin: ROLE_SUPER_Admin
         ROLE_ADMIN: ROLE_ADMIN
+        ROLE_DIRECTOR: ROLE_DIRECTOR
+        ROLE_SUPERVISOR: ROLE_SUPERVISOR
+        ROLE_VISITOR: ROLE_VISITOR
+        ROLE_USER: ROLE_USER
+
 
     providers:
         db_provider:

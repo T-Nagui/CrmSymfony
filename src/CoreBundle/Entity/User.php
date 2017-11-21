@@ -8,12 +8,24 @@ use \Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * User
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\UserRepository")
+ * @ORM\Table(name="users")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "user" = "CoreBundle\Entity\User",
+ *     "director" = "CoreBundle\Entity\Director",
+ *     "admin" = "CoreBundle\Entity\Admin",
+ *     "visitor" = "CoreBundle\Entity\Visitor",
+ *     "supervisor" = "CoreBundle\Entity\Supervisor"
+ * })
  */
-class User implements  AdvancedUserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable
 {
     use Traceable;
 
@@ -28,7 +40,7 @@ class User implements  AdvancedUserInterface, \Serializable
      * @ORM\Column(type="string",unique=true)
      */
     private $email;
-     /**
+    /**
      * @ORM\Column(type="string")
      */
     private $name;
@@ -61,6 +73,12 @@ class User implements  AdvancedUserInterface, \Serializable
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $deletedAt;
+
+    /**
+     * @ORM\Column(name="roles", type="array")
+     * @JMS\Exclude()
+     */
+    private $roles = array();
     /**
      * @return mixed
      */
@@ -173,36 +191,6 @@ class User implements  AdvancedUserInterface, \Serializable
         $this->isActive = $isActive;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @return mixed
      */
@@ -210,7 +198,6 @@ class User implements  AdvancedUserInterface, \Serializable
     {
         return $this->id;
     }
-
 
 
     /**
@@ -236,29 +223,24 @@ class User implements  AdvancedUserInterface, \Serializable
      */
     public function getUsername()
     {
-    return $this->email;
+        return $this->email;
 
-     }
+    }
 
     /**
-     * Returns the roles granted to the user.
-     *
-     * <code>
-     * public function getRoles()
-     * {
-     *     return array('ROLE_USER');
-     * }
-     * </code>
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return (Role|string)[] The user roles
+     * @return mixed
      */
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     /**
@@ -285,7 +267,6 @@ class User implements  AdvancedUserInterface, \Serializable
     {
 
     }
-
 
 
     /**
@@ -386,6 +367,7 @@ class User implements  AdvancedUserInterface, \Serializable
     {
         // TODO: Implement unserialize() method.
     }
+
     /**
      * @return mixed
      */

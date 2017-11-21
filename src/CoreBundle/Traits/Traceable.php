@@ -25,7 +25,7 @@ trait Traceable
     protected $updatedAt;
 
     /**
-     * @var \AppBundle\Entity\User $createdBy
+     * @var \CoreBundle\Entity\User $createdBy
      *
      * @Gedmo\Blameable(on="create")
      * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\User")
@@ -35,7 +35,7 @@ trait Traceable
     protected $createdBy;
 
     /**
-     * @var \AppBundle\Entity\User $updatedBy
+     * @var \CoreBundle\Entity\User $updatedBy
      *
      * @Gedmo\Blameable(on="update")
      * @ORM\ManyToOne(targetEntity="CoreBundle\Entity\User")
@@ -77,7 +77,7 @@ trait Traceable
     }
 
     /**
-     * @return \AppBundle\Entity\User
+     * @return \CoreBundle\Entity\User
      */
     public function getCreatedBy()
     {
@@ -85,7 +85,7 @@ trait Traceable
     }
 
     /**
-     * @param \AppBundle\Entity\User $createdBy
+     * @param \CoreBundle\Entity\User $createdBy
      */
     public function setCreatedBy($createdBy)
     {
@@ -93,7 +93,7 @@ trait Traceable
     }
 
     /**
-     * @return \AppBundle\Entity\User
+     * @return \CoreBundle\Entity\User
      */
     public function getUpdatedBy()
     {
@@ -101,7 +101,7 @@ trait Traceable
     }
 
     /**
-     * @param \AppBundle\Entity\User $updatedBy
+     * @param \CoreBundle\Entity\User $updatedBy
      */
     public function setUpdatedBy($updatedBy)
     {
